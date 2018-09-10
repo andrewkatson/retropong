@@ -4,6 +4,7 @@
 #include <SFML/Window.hpp>
 
 void initGame(sf::RenderWindow &game);
+void processEvents(sf::RenderWindow &game);
 void updateGame(int deltaMs);
 void shutdownGame();
 

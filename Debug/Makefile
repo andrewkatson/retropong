@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/f85/adkatson/Downloads/pong
+CMAKE_SOURCE_DIR = /home/f85/adkatson/Downloads/pong/retropong
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/f85/adkatson/Downloads/pong/Debug
+CMAKE_BINARY_DIR = /home/f85/adkatson/Downloads/pong/retropong/Debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/f85/adkatson/Downloads/pong/Debug/CMakeFiles /home/f85/adkatson/Downloads/pong/Debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles /home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/f85/adkatson/Downloads/pong/Debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,6 +123,19 @@ Game/fast:
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/build
 .PHONY : Game/fast
 
+#=============================================================================
+# Target rules for targets named retropong_core
+
+# Build rule for target.
+retropong_core: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 retropong_core
+.PHONY : retropong_core
+
+# fast build rule for target.
+retropong_core/fast:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/build
+.PHONY : retropong_core/fast
+
 bin/Game.o: bin/Game.cpp.o
 
 .PHONY : bin/Game.o
@@ -150,6 +163,114 @@ bin/Game.cpp.s:
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/bin/Game.cpp.s
 .PHONY : bin/Game.cpp.s
 
+src/CompView.o: src/CompView.cpp.o
+
+.PHONY : src/CompView.o
+
+# target to build an object file
+src/CompView.cpp.o:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/CompView.cpp.o
+.PHONY : src/CompView.cpp.o
+
+src/CompView.i: src/CompView.cpp.i
+
+.PHONY : src/CompView.i
+
+# target to preprocess a source file
+src/CompView.cpp.i:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/CompView.cpp.i
+.PHONY : src/CompView.cpp.i
+
+src/CompView.s: src/CompView.cpp.s
+
+.PHONY : src/CompView.s
+
+# target to generate assembly for a file
+src/CompView.cpp.s:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/CompView.cpp.s
+.PHONY : src/CompView.cpp.s
+
+src/GameLogic.o: src/GameLogic.cpp.o
+
+.PHONY : src/GameLogic.o
+
+# target to build an object file
+src/GameLogic.cpp.o:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o
+.PHONY : src/GameLogic.cpp.o
+
+src/GameLogic.i: src/GameLogic.cpp.i
+
+.PHONY : src/GameLogic.i
+
+# target to preprocess a source file
+src/GameLogic.cpp.i:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/GameLogic.cpp.i
+.PHONY : src/GameLogic.cpp.i
+
+src/GameLogic.s: src/GameLogic.cpp.s
+
+.PHONY : src/GameLogic.s
+
+# target to generate assembly for a file
+src/GameLogic.cpp.s:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/GameLogic.cpp.s
+.PHONY : src/GameLogic.cpp.s
+
+src/KeyPress.o: src/KeyPress.cpp.o
+
+.PHONY : src/KeyPress.o
+
+# target to build an object file
+src/KeyPress.cpp.o:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/KeyPress.cpp.o
+.PHONY : src/KeyPress.cpp.o
+
+src/KeyPress.i: src/KeyPress.cpp.i
+
+.PHONY : src/KeyPress.i
+
+# target to preprocess a source file
+src/KeyPress.cpp.i:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/KeyPress.cpp.i
+.PHONY : src/KeyPress.cpp.i
+
+src/KeyPress.s: src/KeyPress.cpp.s
+
+.PHONY : src/KeyPress.s
+
+# target to generate assembly for a file
+src/KeyPress.cpp.s:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/KeyPress.cpp.s
+.PHONY : src/KeyPress.cpp.s
+
+src/UserView.o: src/UserView.cpp.o
+
+.PHONY : src/UserView.o
+
+# target to build an object file
+src/UserView.cpp.o:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/UserView.cpp.o
+.PHONY : src/UserView.cpp.o
+
+src/UserView.i: src/UserView.cpp.i
+
+.PHONY : src/UserView.i
+
+# target to preprocess a source file
+src/UserView.cpp.i:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/UserView.cpp.i
+.PHONY : src/UserView.cpp.i
+
+src/UserView.s: src/UserView.cpp.s
+
+.PHONY : src/UserView.s
+
+# target to generate assembly for a file
+src/UserView.cpp.s:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/UserView.cpp.s
+.PHONY : src/UserView.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -159,9 +280,22 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Game"
+	@echo "... retropong_core"
 	@echo "... bin/Game.o"
 	@echo "... bin/Game.i"
 	@echo "... bin/Game.s"
+	@echo "... src/CompView.o"
+	@echo "... src/CompView.i"
+	@echo "... src/CompView.s"
+	@echo "... src/GameLogic.o"
+	@echo "... src/GameLogic.i"
+	@echo "... src/GameLogic.s"
+	@echo "... src/KeyPress.o"
+	@echo "... src/KeyPress.i"
+	@echo "... src/KeyPress.s"
+	@echo "... src/UserView.o"
+	@echo "... src/UserView.i"
+	@echo "... src/UserView.s"
 .PHONY : help
 
 

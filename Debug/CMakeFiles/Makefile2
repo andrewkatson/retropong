@@ -54,19 +54,19 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/f85/adkatson/Downloads/pong
+CMAKE_SOURCE_DIR = /home/f85/adkatson/Downloads/pong/retropong
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/f85/adkatson/Downloads/pong/Debug
+CMAKE_BINARY_DIR = /home/f85/adkatson/Downloads/pong/retropong/Debug
 
 #=============================================================================
 # Target rules for target CMakeFiles/Game.dir
 
 # All Build rule for target.
-CMakeFiles/Game.dir/all:
+CMakeFiles/Game.dir/all: CMakeFiles/retropong_core.dir/all
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/depend
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/f85/adkatson/Downloads/pong/Debug/CMakeFiles --progress-num=1,2 "Built target Game"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles --progress-num=1,2 "Built target Game"
 .PHONY : CMakeFiles/Game.dir/all
 
 # Include target in all.
@@ -76,9 +76,9 @@ all: CMakeFiles/Game.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Game.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/f85/adkatson/Downloads/pong/Debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles 7
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Game.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/f85/adkatson/Downloads/pong/Debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles 0
 .PHONY : CMakeFiles/Game.dir/rule
 
 # Convenience name for target.
@@ -93,6 +93,43 @@ CMakeFiles/Game.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/Game.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/retropong_core.dir
+
+# All Build rule for target.
+CMakeFiles/retropong_core.dir/all:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/depend
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles --progress-num=3,4,5,6,7 "Built target retropong_core"
+.PHONY : CMakeFiles/retropong_core.dir/all
+
+# Include target in all.
+all: CMakeFiles/retropong_core.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/retropong_core.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles 5
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/retropong_core.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles 0
+.PHONY : CMakeFiles/retropong_core.dir/rule
+
+# Convenience name for target.
+retropong_core: CMakeFiles/retropong_core.dir/rule
+
+.PHONY : retropong_core
+
+# clean rule for target.
+CMakeFiles/retropong_core.dir/clean:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/clean
+.PHONY : CMakeFiles/retropong_core.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/retropong_core.dir/clean
 
 .PHONY : clean
 

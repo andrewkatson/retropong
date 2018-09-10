@@ -1,0 +1,2 @@
+/usr/bin/ar qc libretropong_core.a  CMakeFiles/retropong_core.dir/src/KeyPress.cpp.o CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o CMakeFiles/retropong_core.dir/src/UserView.cpp.o CMakeFiles/retropong_core.dir/src/CompView.cpp.o
+/usr/bin/ranlib libretropong_core.a

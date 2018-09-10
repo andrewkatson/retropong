@@ -1,5 +1,12 @@
-#include "Game.hpp"
+#include "../include/Game.hpp"
+#include "../include/KeyPress.hpp"
+#include "../include/GameLogic.hpp"
+#include "../include/UserView.hpp"
+#include "../include/CompView.hpp"
+#include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
+#include <iostream>
+
 
 int main(){
 
@@ -14,23 +21,12 @@ int main(){
   // start main loop
   while(game.isOpen())
   {
-    // process events
-    sf::Event Event;
-    while(game.pollEvent(Event))
-    {
-      // Exit
-      if(Event.type == sf::Event::Closed)
-        game.close();
-    }
-
+    processEvents(game);
     sf::Time timeDelta = gameClock.restart();
     int deltaMs = timeDelta.asMilliseconds();
     updateGame(deltaMs);
 
-
   }
-
-
   shutdownGame();
 }
 
@@ -43,9 +39,33 @@ void initGame(sf::RenderWindow &game){
   game.display();
 }
 
+void processEvents(sf::RenderWindow &game){
+  // process events
+  sf::Event Event;
+  while(game.pollEvent(Event))
+  {
+    // Exit
+    if(Event.type == sf::Event::Closed)
+      game.close();
+    //Key Pressed
+    else if(Event.type == sf::Event::KeyPressed){
+      KeyPress *keyPress = new KeyPress();
+
+      keyPress -> processInput();
+
+    }
+  }
+}
+
 void updateGame(int deltaMs){
+  GameLogic *gameLogic = new GameLogic();
+  UserView *userView = new UserView();
+  CompView *compView = new CompView();
 
 
+  gameLogic -> updateLogic(deltaMs);
+  userView -> updateUserView(deltaMs);
+  compView -> updateCompView(deltaMs);
 
 }
 

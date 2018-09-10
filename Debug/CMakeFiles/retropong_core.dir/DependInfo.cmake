@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/f85/adkatson/Downloads/pong/retropong/src/CompView.cpp" "/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles/retropong_core.dir/src/CompView.cpp.o"
   "/home/f85/adkatson/Downloads/pong/retropong/src/GameLogic.cpp" "/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o"
   "/home/f85/adkatson/Downloads/pong/retropong/src/KeyPress.cpp" "/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles/retropong_core.dir/src/KeyPress.cpp.o"
+  "/home/f85/adkatson/Downloads/pong/retropong/src/Paddle.cpp" "/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles/retropong_core.dir/src/Paddle.cpp.o"
   "/home/f85/adkatson/Downloads/pong/retropong/src/UserView.cpp" "/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles/retropong_core.dir/src/UserView.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

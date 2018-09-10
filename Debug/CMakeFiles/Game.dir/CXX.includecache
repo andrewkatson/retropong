@@ -695,6 +695,12 @@ iostream
 -
 
 /home/f85/adkatson/Downloads/pong/retropong/include/CompView.hpp
+SFML/Window.hpp
+-
+SFML/Graphics.hpp
+-
+GameLogic.hpp
+/home/f85/adkatson/Downloads/pong/retropong/include/GameLogic.hpp
 
 /home/f85/adkatson/Downloads/pong/retropong/include/Game.hpp
 SFML/Graphics.hpp
@@ -703,10 +709,20 @@ SFML/Window.hpp
 -
 
 /home/f85/adkatson/Downloads/pong/retropong/include/GameLogic.hpp
+Paddle.hpp
+/home/f85/adkatson/Downloads/pong/retropong/include/Paddle.hpp
 
 /home/f85/adkatson/Downloads/pong/retropong/include/KeyPress.hpp
 SFML/Window.hpp
 -
 
+/home/f85/adkatson/Downloads/pong/retropong/include/Paddle.hpp
+
 /home/f85/adkatson/Downloads/pong/retropong/include/UserView.hpp
+SFML/Window.hpp
+-
+SFML/Graphics.hpp
+-
+GameLogic.hpp
+/home/f85/adkatson/Downloads/pong/retropong/include/GameLogic.hpp
 

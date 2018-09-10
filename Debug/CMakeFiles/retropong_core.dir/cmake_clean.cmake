@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o"
   "CMakeFiles/retropong_core.dir/src/UserView.cpp.o"
   "CMakeFiles/retropong_core.dir/src/CompView.cpp.o"
+  "CMakeFiles/retropong_core.dir/src/Paddle.cpp.o"
   "libretropong_core.pdb"
   "libretropong_core.a"
 )

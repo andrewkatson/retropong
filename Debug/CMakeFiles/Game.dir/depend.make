@@ -80,5 +80,6 @@ CMakeFiles/Game.dir/bin/Game.cpp.o: ../include/CompView.hpp
 CMakeFiles/Game.dir/bin/Game.cpp.o: ../include/Game.hpp
 CMakeFiles/Game.dir/bin/Game.cpp.o: ../include/GameLogic.hpp
 CMakeFiles/Game.dir/bin/Game.cpp.o: ../include/KeyPress.hpp
+CMakeFiles/Game.dir/bin/Game.cpp.o: ../include/Paddle.hpp
 CMakeFiles/Game.dir/bin/Game.cpp.o: ../include/UserView.hpp
 

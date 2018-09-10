@@ -153,12 +153,37 @@ CMakeFiles/retropong_core.dir/src/CompView.cpp.o.provides: CMakeFiles/retropong_
 CMakeFiles/retropong_core.dir/src/CompView.cpp.o.provides.build: CMakeFiles/retropong_core.dir/src/CompView.cpp.o
 
 
+CMakeFiles/retropong_core.dir/src/Paddle.cpp.o: CMakeFiles/retropong_core.dir/flags.make
+CMakeFiles/retropong_core.dir/src/Paddle.cpp.o: ../src/Paddle.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/retropong_core.dir/src/Paddle.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/retropong_core.dir/src/Paddle.cpp.o -c /home/f85/adkatson/Downloads/pong/retropong/src/Paddle.cpp
+
+CMakeFiles/retropong_core.dir/src/Paddle.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/retropong_core.dir/src/Paddle.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/adkatson/Downloads/pong/retropong/src/Paddle.cpp > CMakeFiles/retropong_core.dir/src/Paddle.cpp.i
+
+CMakeFiles/retropong_core.dir/src/Paddle.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/retropong_core.dir/src/Paddle.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/adkatson/Downloads/pong/retropong/src/Paddle.cpp -o CMakeFiles/retropong_core.dir/src/Paddle.cpp.s
+
+CMakeFiles/retropong_core.dir/src/Paddle.cpp.o.requires:
+
+.PHONY : CMakeFiles/retropong_core.dir/src/Paddle.cpp.o.requires
+
+CMakeFiles/retropong_core.dir/src/Paddle.cpp.o.provides: CMakeFiles/retropong_core.dir/src/Paddle.cpp.o.requires
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/Paddle.cpp.o.provides.build
+.PHONY : CMakeFiles/retropong_core.dir/src/Paddle.cpp.o.provides
+
+CMakeFiles/retropong_core.dir/src/Paddle.cpp.o.provides.build: CMakeFiles/retropong_core.dir/src/Paddle.cpp.o
+
+
 # Object files for target retropong_core
 retropong_core_OBJECTS = \
 "CMakeFiles/retropong_core.dir/src/KeyPress.cpp.o" \
 "CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o" \
 "CMakeFiles/retropong_core.dir/src/UserView.cpp.o" \
-"CMakeFiles/retropong_core.dir/src/CompView.cpp.o"
+"CMakeFiles/retropong_core.dir/src/CompView.cpp.o" \
+"CMakeFiles/retropong_core.dir/src/Paddle.cpp.o"
 
 # External object files for target retropong_core
 retropong_core_EXTERNAL_OBJECTS =
@@ -167,9 +192,10 @@ libretropong_core.a: CMakeFiles/retropong_core.dir/src/KeyPress.cpp.o
 libretropong_core.a: CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o
 libretropong_core.a: CMakeFiles/retropong_core.dir/src/UserView.cpp.o
 libretropong_core.a: CMakeFiles/retropong_core.dir/src/CompView.cpp.o
+libretropong_core.a: CMakeFiles/retropong_core.dir/src/Paddle.cpp.o
 libretropong_core.a: CMakeFiles/retropong_core.dir/build.make
 libretropong_core.a: CMakeFiles/retropong_core.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libretropong_core.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library libretropong_core.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/retropong_core.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/retropong_core.dir/link.txt --verbose=$(VERBOSE)
 
@@ -182,6 +208,7 @@ CMakeFiles/retropong_core.dir/requires: CMakeFiles/retropong_core.dir/src/KeyPre
 CMakeFiles/retropong_core.dir/requires: CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o.requires
 CMakeFiles/retropong_core.dir/requires: CMakeFiles/retropong_core.dir/src/UserView.cpp.o.requires
 CMakeFiles/retropong_core.dir/requires: CMakeFiles/retropong_core.dir/src/CompView.cpp.o.requires
+CMakeFiles/retropong_core.dir/requires: CMakeFiles/retropong_core.dir/src/Paddle.cpp.o.requires
 
 .PHONY : CMakeFiles/retropong_core.dir/requires
 

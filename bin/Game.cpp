@@ -8,6 +8,10 @@
 #include <iostream>
 
 
+static GameLogic *gameLogic;
+static UserView *userView;
+static CompView *compView;
+
 int main(){
 
   //start game clock
@@ -37,6 +41,13 @@ void initGame(sf::RenderWindow &game){
 
   // display
   game.display();
+
+  //initialize the Game Logic
+  gameLogic = new GameLogic();
+  //initialize the User View
+  userView = new UserView(game, *gameLogic);
+  //initlaize the Computer View
+  compView = new CompView(game, *gameLogic);
 }
 
 void processEvents(sf::RenderWindow &game){
@@ -58,9 +69,6 @@ void processEvents(sf::RenderWindow &game){
 }
 
 void updateGame(int deltaMs){
-  GameLogic *gameLogic = new GameLogic();
-  UserView *userView = new UserView();
-  CompView *compView = new CompView();
 
 
   gameLogic -> updateLogic(deltaMs);

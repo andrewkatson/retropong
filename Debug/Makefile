@@ -244,6 +244,33 @@ src/KeyPress.cpp.s:
 	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/KeyPress.cpp.s
 .PHONY : src/KeyPress.cpp.s
 
+src/Paddle.o: src/Paddle.cpp.o
+
+.PHONY : src/Paddle.o
+
+# target to build an object file
+src/Paddle.cpp.o:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/Paddle.cpp.o
+.PHONY : src/Paddle.cpp.o
+
+src/Paddle.i: src/Paddle.cpp.i
+
+.PHONY : src/Paddle.i
+
+# target to preprocess a source file
+src/Paddle.cpp.i:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/Paddle.cpp.i
+.PHONY : src/Paddle.cpp.i
+
+src/Paddle.s: src/Paddle.cpp.s
+
+.PHONY : src/Paddle.s
+
+# target to generate assembly for a file
+src/Paddle.cpp.s:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/Paddle.cpp.s
+.PHONY : src/Paddle.cpp.s
+
 src/UserView.o: src/UserView.cpp.o
 
 .PHONY : src/UserView.o
@@ -293,6 +320,9 @@ help:
 	@echo "... src/KeyPress.o"
 	@echo "... src/KeyPress.i"
 	@echo "... src/KeyPress.s"
+	@echo "... src/Paddle.o"
+	@echo "... src/Paddle.i"
+	@echo "... src/Paddle.s"
 	@echo "... src/UserView.o"
 	@echo "... src/UserView.i"
 	@echo "... src/UserView.s"

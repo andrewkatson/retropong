@@ -681,12 +681,6 @@ SFML/Config.hpp
 /home/f85/adkatson/Downloads/pong/retropong/include/Game.hpp
 ../include/KeyPress.hpp
 /home/f85/adkatson/Downloads/pong/retropong/include/KeyPress.hpp
-../include/GameLogic.hpp
-/home/f85/adkatson/Downloads/pong/retropong/include/GameLogic.hpp
-../include/UserView.hpp
-/home/f85/adkatson/Downloads/pong/retropong/include/UserView.hpp
-../include/CompView.hpp
-/home/f85/adkatson/Downloads/pong/retropong/include/CompView.hpp
 SFML/Graphics.hpp
 -
 SFML/System.hpp
@@ -701,19 +695,35 @@ SFML/Graphics.hpp
 -
 GameLogic.hpp
 /home/f85/adkatson/Downloads/pong/retropong/include/GameLogic.hpp
+memory
+-
 
 /home/f85/adkatson/Downloads/pong/retropong/include/Game.hpp
+../include/GameLogic.hpp
+/home/f85/adkatson/Downloads/pong/retropong/include/GameLogic.hpp
+../include/UserView.hpp
+/home/f85/adkatson/Downloads/pong/retropong/include/UserView.hpp
+../include/CompView.hpp
+/home/f85/adkatson/Downloads/pong/retropong/include/CompView.hpp
 SFML/Graphics.hpp
 -
 SFML/Window.hpp
+-
+memory
 -
 
 /home/f85/adkatson/Downloads/pong/retropong/include/GameLogic.hpp
 Paddle.hpp
 /home/f85/adkatson/Downloads/pong/retropong/include/Paddle.hpp
+memory
+-
 
 /home/f85/adkatson/Downloads/pong/retropong/include/KeyPress.hpp
+GameLogic.hpp
+/home/f85/adkatson/Downloads/pong/retropong/include/GameLogic.hpp
 SFML/Window.hpp
+-
+memory
 -
 
 /home/f85/adkatson/Downloads/pong/retropong/include/Paddle.hpp
@@ -723,6 +733,8 @@ SFML/Window.hpp
 -
 SFML/Graphics.hpp
 -
-GameLogic.hpp
-/home/f85/adkatson/Downloads/pong/retropong/include/GameLogic.hpp
+Paddle.hpp
+/home/f85/adkatson/Downloads/pong/retropong/include/Paddle.hpp
+memory
+-
 

@@ -1,9 +1,6 @@
 #include "../include/CompView.hpp"
 
-CompView::CompView(sf::RenderWindow &game){
-  this -> game = &game;
-  
-}
+CompView::CompView(){}
 
 void CompView::updateCompView(int deltaMs){
 

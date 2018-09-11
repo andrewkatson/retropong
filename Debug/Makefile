@@ -163,6 +163,33 @@ bin/Game.cpp.s:
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/bin/Game.cpp.s
 .PHONY : bin/Game.cpp.s
 
+src/Ball.o: src/Ball.cpp.o
+
+.PHONY : src/Ball.o
+
+# target to build an object file
+src/Ball.cpp.o:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/Ball.cpp.o
+.PHONY : src/Ball.cpp.o
+
+src/Ball.i: src/Ball.cpp.i
+
+.PHONY : src/Ball.i
+
+# target to preprocess a source file
+src/Ball.cpp.i:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/Ball.cpp.i
+.PHONY : src/Ball.cpp.i
+
+src/Ball.s: src/Ball.cpp.s
+
+.PHONY : src/Ball.s
+
+# target to generate assembly for a file
+src/Ball.cpp.s:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/Ball.cpp.s
+.PHONY : src/Ball.cpp.s
+
 src/CompView.o: src/CompView.cpp.o
 
 .PHONY : src/CompView.o
@@ -311,6 +338,9 @@ help:
 	@echo "... bin/Game.o"
 	@echo "... bin/Game.i"
 	@echo "... bin/Game.s"
+	@echo "... src/Ball.o"
+	@echo "... src/Ball.i"
+	@echo "... src/Ball.s"
 	@echo "... src/CompView.o"
 	@echo "... src/CompView.i"
 	@echo "... src/CompView.s"

@@ -4,13 +4,13 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include "GameLogic.hpp"
+#include <memory>
+
+using std::shared_ptr;
 
 class CompView{
-private:
-sf::RenderWindow *game;
-
 public:
-  CompView(sf::RenderWindow &game);
+  CompView();
 
   void updateCompView(int deltaMs);
 

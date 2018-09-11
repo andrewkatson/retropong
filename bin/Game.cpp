@@ -1,18 +1,15 @@
 #include "../include/Game.hpp"
 #include "../include/KeyPress.hpp"
-#include "../include/GameLogic.hpp"
-#include "../include/UserView.hpp"
-#include "../include/CompView.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <iostream>
 
 
-static GameLogic *gameLogic;
-static UserView *userView;
-static CompView *compView;
 
 int main(){
+
+  //make a Game
+  auto pongGame = unique_ptr<Game>(new Game());
 
   //start game clock
   sf::Clock gameClock;
@@ -20,63 +17,68 @@ int main(){
   // create main window
   sf::RenderWindow game(sf::VideoMode(800,600,32), "Pong");
 
-  initGame(game);
+  pongGame -> initGame(game);
 
   // start main loop
   while(game.isOpen())
   {
-    processEvents(game);
     sf::Time timeDelta = gameClock.restart();
     int deltaMs = timeDelta.asMilliseconds();
-    updateGame(deltaMs);
+    pongGame -> updateGame(deltaMs, game);
 
   }
-  shutdownGame();
 }
 
+Game::Game(){}
 
-void initGame(sf::RenderWindow &game){
+
+void Game::initGame(sf::RenderWindow  &game){
   // clear screen and fill with black
   game.clear(sf::Color::Black);
 
   // display
   game.display();
 
-  //initialize the Game Logic
-  gameLogic = new GameLogic();
+  //get the size of the render window
+  sf::Vector2u windowSize = game.getSize();
+
+  unsigned int windowX = windowSize.x;
+  unsigned int windowY = windowSize.y;
+
+  this -> gameLogic = unique_ptr<GameLogic>(new GameLogic(windowX, windowY));
   //initialize the User View
-  userView = new UserView(game, *gameLogic);
+  this -> userView = unique_ptr<UserView>(new UserView((this -> gameLogic -> userPaddle).get(), (this -> gameLogic -> compPaddle).get()));
   //initlaize the Computer View
-  compView = new CompView(game, *gameLogic);
+  this -> compView = unique_ptr<CompView>();
 }
 
-void processEvents(sf::RenderWindow &game){
+
+void Game::updateGame(int deltaMs, sf::RenderWindow  &game){
+  this -> processEvents(game);
+  this -> gameLogic -> updateLogic(deltaMs);
+  this -> userView -> updateUserView(deltaMs, game);
+  this -> compView -> updateCompView(deltaMs);
+
+}
+
+void Game::processEvents(sf::RenderWindow  &game){
   // process events
   sf::Event Event;
   while(game.pollEvent(Event))
   {
     // Exit
     if(Event.type == sf::Event::Closed)
-      game.close();
+      this -> shutdownGame(game);
     //Key Pressed
     else if(Event.type == sf::Event::KeyPressed){
-      KeyPress *keyPress = new KeyPress();
+      auto keyPress = unique_ptr<KeyPress>(new KeyPress());
 
-      keyPress -> processInput();
+      keyPress -> processInput(Event, (this -> gameLogic).get());
 
     }
   }
 }
 
-void updateGame(int deltaMs){
-
-
-  gameLogic -> updateLogic(deltaMs);
-  userView -> updateUserView(deltaMs);
-  compView -> updateCompView(deltaMs);
-
-}
-
-void shutdownGame(){
-
+void Game::shutdownGame(sf::RenderWindow  &game){
+  game.close();
 }

@@ -57,7 +57,7 @@ link_libraries(${SFML_LIBRARIES})
 
 if(NOT SFML_FOUND)
   # SFML not found
-  message(FATAL_ERROR " * Make sure LIB includes the directory where the SFML libraries are installed.\n * Make sure INCLUDE includes the directory where the SFML header files are installed.")	
+  message(FATAL_ERROR " * Make sure LIB includes the directory where the SFML libraries are installed.\n * Make sure INCLUDE includes the directory where the SFML header files are installed.")
 endif()
 
 ###############
@@ -69,7 +69,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 # determine build type
 # 1) use build type if specified by the user.
 # 2) if in-source building, use default (debug) build type.
-# 3) if out-source building, determine based on the build directory's name which build type. 
+# 3) if out-source building, determine based on the build directory's name which build type.
 #    If build directory is called 'Release' or 'Profile' then use the 'Release' and 'Profile' 
 #    build type respectively, otherwise use 'debug'.
 if(CMAKE_BUILD_TYPE)

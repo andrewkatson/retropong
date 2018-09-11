@@ -5,12 +5,12 @@ using std::cout;
 
 KeyPress::KeyPress(){}
 
-void KeyPress::processInput(){
+void KeyPress::processInput(sf::Event event, GameLogic *gameLogic){
 
-  if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
-    cout << "s pressed";
+  if(event.key.code == sf::Keyboard::S){
+    gameLogic -> moveUserPaddleDown();
   }
-  else if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
-    cout << "w pressed";
+  else if(event.key.code == sf::Keyboard::W){
+    gameLogic -> moveUserPaddleUp();
   }
 }

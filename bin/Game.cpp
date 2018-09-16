@@ -1,11 +1,9 @@
-#include "../include/Game.hpp"
-#include "../include/KeyPress.hpp"
+#include "Game.hpp"
+#include "KeyPress.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <iostream>
-
-
-
+using std::cout;
 int main(){
 
   //make a Game
@@ -42,14 +40,26 @@ void Game::initGame(sf::RenderWindow  &game){
   //get the size of the render window
   sf::Vector2u windowSize = game.getSize();
 
+  //dimensions of the window
   unsigned int windowX = windowSize.x;
   unsigned int windowY = windowSize.y;
+  
+  //The score to window
+  int winngScore = 11;
 
-  this -> gameLogic = unique_ptr<GameLogic>(new GameLogic(windowX, windowY));
+  //initialize the Game Logic
+  this -> gameLogic = unique_ptr<GameLogic>(new GameLogic(windowX, windowY,
+                                            winngScore));
   //initialize the User View
-  this -> userView = unique_ptr<UserView>(new UserView((this -> gameLogic -> userPaddle).get(), (this -> gameLogic -> compPaddle).get()));
+  this -> userView = unique_ptr<UserView>(new UserView(
+    (this -> gameLogic -> userPaddle).get(),
+    (this -> gameLogic -> compPaddle).get(),
+    (this -> gameLogic -> ball).get()));
   //initlaize the Computer View
-  this -> compView = unique_ptr<CompView>();
+  this -> compView = unique_ptr<CompView>(new CompView(
+    (this -> gameLogic).get(),
+    (this -> gameLogic -> compPaddle).get(),
+    (this -> gameLogic -> ball).get(), CompView::easy));
 }
 
 
@@ -72,7 +82,6 @@ void Game::processEvents(sf::RenderWindow  &game){
     //Key Pressed
     else if(Event.type == sf::Event::KeyPressed){
       auto keyPress = unique_ptr<KeyPress>(new KeyPress());
-
       keyPress -> processInput(Event, (this -> gameLogic).get());
 
     }

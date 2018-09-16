@@ -1,4 +1,4 @@
-#include "../include/Paddle.hpp"
+#include "Paddle.hpp"
 
 Paddle::Paddle(int xPos, int yPos, int xDim, int yDim, int speed){
   this -> xPos = xPos;
@@ -8,8 +8,8 @@ Paddle::Paddle(int xPos, int yPos, int xDim, int yDim, int speed){
   this -> speed = speed;
 }
 
-
 void Paddle::movePaddle(Direction direction){
+
   switch(direction){
     case up:
       this -> updatePos(this -> xPos, this -> yPos - this -> speed);
@@ -55,4 +55,8 @@ int Paddle::getXDim(){
 
 int Paddle::getYDim(){
   return this -> yDim;
+}
+
+void Paddle::setSpeed(int speed){
+  this -> speed = speed;
 }

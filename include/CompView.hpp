@@ -9,11 +9,27 @@
 using std::shared_ptr;
 
 class CompView{
+private:
+  GameLogic *gameLogic;
+  Paddle *compPaddle;
+  Ball *ball;
+
+  int ticksSinceLastMove;
+
 public:
-  CompView();
+  enum Difficulty {
+    easy, medium, hard
+  };
+
+  CompView(GameLogic *gameLogic, Paddle *compPaddle, Ball *ball, Difficulty difficulty);
 
   void updateCompView(int deltaMs);
+  void followBall();
+  bool canMove();
+  int calcMaxTicksBeforeMove();
 
+private:
+  Difficulty difficulty;
 };
 
 #endif

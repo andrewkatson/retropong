@@ -1,20 +1,40 @@
 #ifndef BALL_H
 #define BALL_H
+#include <math.h>
 
+#define PI 3.14159265
 class Ball{
 private:
+  float xPos;
+  float yPos;
   int angle;
-  int xPos;
-  int yPos;
+  int radius;
+  int speed;
+  int ticks;
+  int maxTicksBeforeMove;
+  int windowX;
+  int windowY;
 
 public:
-  Ball(int xPos, int yPos, int angle);
+  Ball(float xPos, float yPos, int angle, int radius, int speed);
 
-  void updatePos(int xPos, int yPos);
+  void moveForward();
+  float calcXPosChange();
+  float calcYPosChange();
+  void updatePos(float xPos, float yPos);
+  bool canMove();
 
-  int getXPos();
-  int getYPos();
+  float getXPos();
+  float getYPos();
   int getAngle();
+  int getRadius();
+  int getSpeed();
+
+  void setXPos(float xPos);
+  void setYPos(float yPos);
+  void setAngle(int angle);
+  void setSpeed(int speed);
+  void setWindowSize(int windowX, int windowY);
 };
 
 #endif

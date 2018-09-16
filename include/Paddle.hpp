@@ -34,6 +34,8 @@ private:
 
   int getYDim();
 
+  void setSpeed(int speed);
+
 };
 
 #endif

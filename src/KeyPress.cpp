@@ -1,4 +1,4 @@
-#include "../include/KeyPress.hpp"
+#include "KeyPress.hpp"
 #include <iostream>
 
 using std::cout;

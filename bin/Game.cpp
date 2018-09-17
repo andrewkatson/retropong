@@ -43,7 +43,7 @@ void Game::initGame(sf::RenderWindow  &game){
   //dimensions of the window
   unsigned int windowX = windowSize.x;
   unsigned int windowY = windowSize.y;
-  
+
   //The score to window
   int winngScore = 11;
 
@@ -51,15 +51,9 @@ void Game::initGame(sf::RenderWindow  &game){
   this -> gameLogic = unique_ptr<GameLogic>(new GameLogic(windowX, windowY,
                                             winngScore));
   //initialize the User View
-  this -> userView = unique_ptr<UserView>(new UserView(
-    (this -> gameLogic -> userPaddle).get(),
-    (this -> gameLogic -> compPaddle).get(),
-    (this -> gameLogic -> ball).get()));
+  this -> userView = unique_ptr<UserView>(new UserView((this -> gameLogic).get()));
   //initlaize the Computer View
-  this -> compView = unique_ptr<CompView>(new CompView(
-    (this -> gameLogic).get(),
-    (this -> gameLogic -> compPaddle).get(),
-    (this -> gameLogic -> ball).get(), CompView::easy));
+  this -> compView = unique_ptr<CompView>(new CompView((this -> gameLogic).get(), CompView::easy));
 }
 
 

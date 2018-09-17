@@ -5,6 +5,7 @@
 #include "ScoreBoard.hpp"
 #include "Paddle.hpp"
 #include "Ball.hpp"
+#include <SFML/Graphics.hpp>
 #include <memory>
 #include <ctime>
 #include <cstdlib>
@@ -40,21 +41,20 @@ public:
   bool ballHitsUserGoal(float ballX, float ballY, int ballRadius);
   bool ballHitsCompGoal(float ballX, float ballY, int ballRadius);
   bool ballHitsNonGoalSides(float ballX, float ballY, int ballRadius);
-  bool ballHitsAPaddle(float ballX, float ballY, int ballRadius);
-  bool ballHitsUserPaddle(float ballX, float ballY, int ballRadius);
-  bool ballHitsCompPaddle(float ballX, float ballY, int ballRadius);
-  void calcTrueBallDimensions(float ballX, float ballY, int ballRadius,
-     float (&dimensionArray)[8]);
-  bool withinPaddleX(float trueBallX, int paddleX, int paddleXDim);
-  bool withinPaddleY(float trueBallY, int paddleY, int paddleYDim);
+  bool ballHitsAPaddle();
+  bool ballHitsUserPaddle();
+  bool ballHitsCompPaddle();
   void handleCollision();
   bool isScore();
   void handleScore();
   void handlePotentialWin(ScoreBoard::Side winner);
   void resetBall();
+  void unpauseBall();
   void moveBallPositionForward();
   bool ballCanMove();
 
+  int getUserScore();
+  int getCompScore();
   int getUserXDim();
   int getUserYDim();
   int getUserXPos();
@@ -68,6 +68,7 @@ public:
   int getBallRadius();
   int getBallAngle();
   int getBallSpeed();
+  int getBallResetSpeed();
 
   void setBallXPos(float newXPos);
   void setBallYPos(float newYPos);

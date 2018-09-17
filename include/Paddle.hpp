@@ -1,6 +1,6 @@
 #ifndef PADDLE_H
 #define PADDLE_H
-
+#include <SFML/Graphics.hpp>
 class Paddle{
 private:
   int xPos;
@@ -10,6 +10,7 @@ private:
   int speed;
   int windowX;
   int windowY;
+  sf::RectangleShape paddleRect;
 
   public:
   enum Direction {
@@ -36,6 +37,7 @@ private:
 
   void setSpeed(int speed);
 
+  sf::FloatRect getGlobalBounds();
 };
 
 #endif

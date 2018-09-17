@@ -1,8 +1,5 @@
 #include "Ball.hpp"
-#include <iostream>
-using std::cout;
-using std::cos;
-using std::sin;
+
 
 Ball::Ball(float xPos, float yPos, int angle, int radius, int speed){
   this -> xPos = xPos;
@@ -10,8 +7,17 @@ Ball::Ball(float xPos, float yPos, int angle, int radius, int speed){
   this -> angle = angle;
   this -> radius = radius;
   this -> speed = speed;
+  this -> resetSpeed = speed;
   this -> ticks = 0;
   this -> maxTicksBeforeMove = speed * 100;
+
+  sf::CircleShape circle;
+
+  circle.setPosition(sf::Vector2f(xPos, yPos));
+  circle.setRadius(radius);
+  circle.setFillColor(sf::Color::White);
+
+  this -> ballCircle = circle;
 }
 
 void Ball::moveForward(){
@@ -20,10 +26,6 @@ void Ball::moveForward(){
   float xPos = this -> getXPos();
   float yPos = this -> getYPos();
 
-  //cout << "new x "  << xPos + changeInX << std::endl;
-  //cout << "new y " << yPos + changeInY << std::endl;
-  //cout << "change in x " << changeInX << std::endl;
-  //cout << "change in y " << changeInY << std::endl;
   if(changeInX > this -> windowX || changeInY > this -> windowY){
     return;
   }
@@ -33,7 +35,6 @@ void Ball::moveForward(){
 float Ball::calcXPosChange(){
   float speed = (float) this -> getSpeed();
   float angle = (float) this -> getAngle();
-
 
   return speed * cos((angle * PI)/180);
 }
@@ -79,6 +80,9 @@ int Ball::getRadius(){
 int Ball::getSpeed(){
   return this -> speed;
 }
+int Ball::getBallResetSpeed(){
+  return this -> resetSpeed;
+}
 
 void Ball::setXPos(float xPos){
   this -> xPos = xPos;
@@ -96,4 +100,10 @@ void Ball::setSpeed(int speed){
 void Ball::setWindowSize(int windowX, int windowY){
   this -> windowX = windowX;
   this -> windowY = windowY;
+}
+
+sf::FloatRect Ball::getGlobalBounds(){
+  this -> ballCircle.setPosition(sf::Vector2f(this -> getXPos(), this -> getYPos()));
+
+  return this -> ballCircle.getGlobalBounds();
 }

@@ -6,6 +6,14 @@ Paddle::Paddle(int xPos, int yPos, int xDim, int yDim, int speed){
   this -> xDim = xDim;
   this -> yDim = yDim;
   this -> speed = speed;
+
+  sf::RectangleShape rectangle;
+
+  rectangle.setFillColor(sf::Color::White);
+  rectangle.setSize(sf::Vector2f(xDim,yDim));
+  rectangle.setPosition(xPos, yPos);
+
+  this -> paddleRect = rectangle;
 }
 
 void Paddle::movePaddle(Direction direction){
@@ -59,4 +67,11 @@ int Paddle::getYDim(){
 
 void Paddle::setSpeed(int speed){
   this -> speed = speed;
+}
+
+sf::FloatRect Paddle::getGlobalBounds(){
+  this -> paddleRect.setSize(sf::Vector2f(this -> getXDim(),this -> getYDim()));
+  this -> paddleRect.setPosition(this -> getXPos(), this -> getYPos());
+
+  return this -> paddleRect.getGlobalBounds();
 }

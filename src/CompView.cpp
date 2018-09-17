@@ -1,9 +1,7 @@
 #include "CompView.hpp"
 
-CompView::CompView(GameLogic *gameLogic, Paddle *compPaddle, Ball *ball, Difficulty difficulty){
+CompView::CompView(GameLogic *gameLogic, Difficulty difficulty){
   this -> gameLogic = gameLogic;
-  this -> compPaddle = compPaddle;
-  this -> ball = ball;
   this -> difficulty = difficulty;
   this -> ticksSinceLastMove = 0;
 }
@@ -13,11 +11,11 @@ void CompView::updateCompView(int deltaMs){
 }
 
 void CompView::followBall(){
-  int ballX = this -> ball -> getXPos();
-  int ballY = this -> ball -> getYPos();
+  int ballX = this -> gameLogic -> getBallXPos();
+  int ballY = this -> gameLogic -> getBallYPos();
 
-  int compX = this -> compPaddle -> getXPos();
-  int compY = this -> compPaddle -> getYPos();
+  int compX = this -> gameLogic -> getCompXPos();
+  int compY = this -> gameLogic -> getCompYPos();
 
   if(this -> canMove()){
     if (ballY > compY){

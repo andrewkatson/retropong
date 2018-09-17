@@ -3,6 +3,7 @@
 
 #include "Paddle.hpp"
 #include "Ball.hpp"
+#include "GameLogic.hpp"
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <memory>
@@ -11,11 +12,9 @@ using std::shared_ptr;
 
 class UserView{
 private:
-  Paddle *userPaddle;
-  Paddle *compPaddle;
-  Ball *ball;
+  GameLogic *gameLogic;
   public:
-    UserView(Paddle *userPaddle, Paddle *compPaddle, Ball *ball);
+    UserView(GameLogic *gameLogic);
 
     void updateUserView(int deltaMs, sf::RenderWindow &game);
     void drawUserPaddle(sf::RenderWindow &game);

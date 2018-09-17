@@ -16,6 +16,9 @@ public:
   void incrementUserScore();
   void incrementCompScore();
   Side hasWon();
+
+  int getUserScore();
+  int getCompScore();
 };
 
 #endif

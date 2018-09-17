@@ -4,18 +4,19 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/andrew/retropong/bin/Game.cpp" "/home/andrew/retropong/Debug/CMakeFiles/Game.dir/bin/Game.cpp.o"
+  "/home/f85/adkatson/Downloads/pong/retropong/bin/Game.cpp" "/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles/Game.dir/bin/Game.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
+  "/home/f85/adkatson/Downloads/SFML-2.5.0/include"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/andrew/retropong/Debug/CMakeFiles/retropong_core.dir/DependInfo.cmake"
+  "/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles/retropong_core.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

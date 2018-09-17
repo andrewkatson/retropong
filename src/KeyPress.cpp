@@ -13,4 +13,7 @@ void KeyPress::processInput(sf::Event event, GameLogic *gameLogic){
   else if(event.key.code == sf::Keyboard::W){
     gameLogic -> moveUserPaddleUp();
   }
+  else if(event.key.code == sf::Keyboard::Space){
+    gameLogic -> unpauseBall();
+  }
 }

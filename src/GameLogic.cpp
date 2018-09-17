@@ -43,9 +43,7 @@ void GameLogic::moveCompPaddleUp(){
 
 //Move the game ball and determine if there is a collision or a score if it cannot
 void GameLogic::moveBall(){
-  if(this -> getBallSpeed() == 0){
-    return;
-  }
+
 
   if(this -> isCollision()){
     this -> handleCollision();
@@ -79,7 +77,7 @@ bool GameLogic::isCollision(){
   else if(this -> ballHitsNonGoalSides(ballX, ballY, ballRadius)){
     return true;
   }
-  else if(this -> ballHitsAPaddle(ballX, ballY, ballRadius)){
+  else if(this -> ballHitsAPaddle()){
     return true;
   }
   return false;
@@ -149,103 +147,40 @@ bool GameLogic::ballHitsNonGoalSides(float ballX, float ballY, int ballRadius){
   return false;
 }
 
-bool GameLogic::ballHitsAPaddle(float ballX, float ballY, int ballRadius){
+bool GameLogic::ballHitsAPaddle(){
 
-  if(this -> ballHitsUserPaddle( ballX,  ballY, ballRadius)){
+  if(this -> ballHitsUserPaddle()){
     return true;
   }
-  else if(this -> ballHitsCompPaddle(ballX,  ballY, ballRadius)){
-    return true;
-  }
-  return false;
-}
-
-bool GameLogic::ballHitsUserPaddle(float ballX, float ballY, int ballRadius){
-  float trueBallDimensions[8] = {0};
-
-  this -> calcTrueBallDimensions(ballX, ballY, ballRadius, trueBallDimensions);
-
-  int userPaddleX = this -> getUserXPos();
-  int userPaddleY = this -> getUserYPos();
-  int userPaddleXDim = this -> getUserXDim();
-  int userPaddleYDim = this -> getUserYDim();
-
-  //check that all four sides of the ball are not touching or within
-  //the dimensions of the userPaddle
-  for(int i = 0; i < 8; i += 2){
-    float trueX = trueBallDimensions[i];
-    float trueY = trueBallDimensions[i + 1];
-
-    if(this -> withinPaddleX(trueX, userPaddleX, userPaddleXDim)
-      && this -> withinPaddleY(trueY, userPaddleY, userPaddleYDim)){
-      return true;
-    }
-  }
-  return false;
-}
-
-bool GameLogic::ballHitsCompPaddle(float ballX, float ballY, int ballRadius){
-  float trueBallDimensions[8] = {0};
-
-  this -> calcTrueBallDimensions(ballX, ballY, ballRadius, trueBallDimensions);
-
-  int compPaddleX = this -> getCompXPos();
-  int compPaddleY = this -> getCompYPos();
-  int compPaddleXDim = this -> getCompXDim();
-  int compPaddleYDim = this -> getCompYDim();
-
-  //check that all four sides of the ball are not touching or within
-  //the dimensions of the compPaddle
-  for(int i = 0; i < 8; i += 2){
-    float trueX = trueBallDimensions[i];
-    float trueY = trueBallDimensions[i + 1];
-
-    if(this -> withinPaddleX(trueX, compPaddleX, compPaddleXDim)
-      && this -> withinPaddleY(trueY, compPaddleY, compPaddleYDim)){
-      return true;
-    }
-  }
-  return false;
-}
-
-void GameLogic::calcTrueBallDimensions(float ballX, float ballY, int ballRadius,
-                            float (&dimensionArray)[8]){
-  //the true xs and ys considers the effect of the radius
-  float trueBallXLeft = ballX - (float)ballRadius;
-  float trueBallYLeft = ballY;
-  float trueBallXTop = ballX;
-  float trueBallYTop = ballY - (float)ballRadius;
-  float trueBallXRight = ballX + (float)ballRadius;
-  float trueBallYRight = ballY;
-  float trueBallXBottom = ballX;
-  float trueBallYBottom = ballY + (float)ballRadius;
-
-  dimensionArray[0] = trueBallXLeft;
-  dimensionArray[1] = trueBallYLeft;
-  dimensionArray[2] = trueBallXTop;
-  dimensionArray[3] = trueBallYTop;
-  dimensionArray[4] = trueBallXRight;
-  dimensionArray[5] = trueBallYRight;
-  dimensionArray[6] = trueBallXBottom;
-  dimensionArray[7] = trueBallYBottom;
-}
-
-bool GameLogic::withinPaddleX(float trueBallX, int paddleX, int paddleXDim){
-  if(trueBallX >= (float)paddleX && trueBallX <= (float)(paddleX + paddleXDim)){
+  else if(this -> ballHitsCompPaddle()){
     return true;
   }
   return false;
 }
 
-bool GameLogic::withinPaddleY(float trueBallY, int paddleY, int paddleYDim){
-  if(trueBallY >= (float)paddleY && trueBallY <= (float)(paddleY + paddleYDim)){
+bool GameLogic::ballHitsUserPaddle(){
+  sf::FloatRect userPaddleBox = (this -> userPaddle) -> getGlobalBounds();
+  sf::FloatRect ballBox = (this -> ball) -> getGlobalBounds();
+
+  if(userPaddleBox.intersects(ballBox)){
     return true;
   }
   return false;
 }
+
+bool GameLogic::ballHitsCompPaddle(){
+  sf::FloatRect compPaddleBox = (this -> compPaddle) -> getGlobalBounds();
+  sf::FloatRect ballBox = (this -> ball) -> getGlobalBounds();
+
+  if(compPaddleBox.intersects(ballBox)){
+    return true;
+  }
+  return false;
+}
+
 
 void GameLogic::handleCollision(){
-  // +/- 5 angle
+  // +/- 10 angle
   int randomAngleVariation = (rand() % 21) - 10;
 
   int ballAngle = this -> getBallAngle();
@@ -292,7 +227,7 @@ void GameLogic::handleScore(){
 
   this -> handlePotentialWin(winner);
 
-  this -> resetBall();;
+  this -> resetBall();
 }
 
 void GameLogic::handlePotentialWin(ScoreBoard::Side winner){
@@ -309,6 +244,15 @@ void GameLogic::resetBall(){
 
   this -> setBallXPos(halfWindowX);
   this -> setBallYPos(halfWindowY);
+
+  this -> setBallSpeed(0);
+
+}
+
+void GameLogic::unpauseBall(){
+  if(this -> getBallSpeed() != this -> getBallResetSpeed()){
+    this -> setBallSpeed(this -> getBallResetSpeed());
+  }
 }
 
 void GameLogic::moveBallPositionForward(){
@@ -317,6 +261,13 @@ void GameLogic::moveBallPositionForward(){
 
 bool GameLogic::ballCanMove(){
   this -> ball -> canMove();
+}
+
+int GameLogic::getUserScore(){
+  return this -> scoreBoard -> getUserScore();
+}
+int GameLogic::getCompScore(){
+  return this -> scoreBoard -> getCompScore();
 }
 
 //Grab data on user paddle
@@ -373,6 +324,10 @@ int GameLogic::getBallAngle(){
 int GameLogic::getBallSpeed(){
   return this -> ball -> getSpeed();
 }
+int GameLogic::getBallResetSpeed(){
+  return this -> ball -> getBallResetSpeed();
+}
+
 
 //Change ball data
 void GameLogic::setBallXPos(float newXPos){

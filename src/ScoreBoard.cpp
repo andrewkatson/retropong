@@ -31,3 +31,11 @@ ScoreBoard::Side ScoreBoard::hasWon(){
     return ScoreBoard::neither;
   }
 }
+
+int ScoreBoard::getUserScore(){
+  return this -> userScore;
+}
+
+int ScoreBoard::getCompScore(){
+  return this -> compScore;
+}

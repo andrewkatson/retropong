@@ -11,9 +11,6 @@ using std::shared_ptr;
 class CompView{
 private:
   GameLogic *gameLogic;
-  Paddle *compPaddle;
-  Ball *ball;
-
   int ticksSinceLastMove;
 
 public:
@@ -21,7 +18,7 @@ public:
     easy, medium, hard
   };
 
-  CompView(GameLogic *gameLogic, Paddle *compPaddle, Ball *ball, Difficulty difficulty);
+  CompView(GameLogic *gameLogic, Difficulty difficulty);
 
   void updateCompView(int deltaMs);
   void followBall();

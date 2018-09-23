@@ -26,6 +26,7 @@ private:
 public:
   Ball(float xPos, float yPos, int angle, int radius, int speed);
 
+  void reset();
   void moveForward();
   float calcXPosChange();
   float calcYPosChange();
@@ -44,6 +45,8 @@ public:
   void setAngle(int angle);
   void setSpeed(int speed);
   void setWindowSize(int windowX, int windowY);
+
+  void scaleBall();
 
   sf::FloatRect getGlobalBounds();
 };

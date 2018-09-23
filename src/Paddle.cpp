@@ -13,7 +13,30 @@ Paddle::Paddle(int xPos, int yPos, int xDim, int yDim, int speed){
   rectangle.setSize(sf::Vector2f(xDim,yDim));
   rectangle.setPosition(xPos, yPos);
 
+  //rectangle shape used to calculate collision bounds
   this -> paddleRect = rectangle;
+}
+
+//reset the paddle to its starting values
+void Paddle::reset(int compOrUser){
+  int user = 0;
+  int comp = 1;
+
+  //different reset values if this is a computer paddle or player paddle
+  if (compOrUser == user){
+    this -> xPos = (this -> windowX)/160 + 50;
+    this -> yPos = (this -> windowY)/60 + 50;
+    this -> xDim = (this -> windowX)/160;
+    this -> yDim = (this -> windowX)/20;
+    this -> speed = 10;
+  }
+  else{
+    this -> xPos = (this -> windowX) - (this -> windowX)/160 - 50;
+    this -> yPos = (this -> windowY)/60 + 50;
+    this -> xDim = (this -> windowX)/160;
+    this -> yDim = (this -> windowX)/20;
+    this -> speed = 10;
+  }
 }
 
 void Paddle::movePaddle(Direction direction){
@@ -31,22 +54,31 @@ void Paddle::movePaddle(Direction direction){
 }
 
 void Paddle::updatePos(int newXPos, int newYPos){
-  if(newYPos < 0 || newYPos + this -> yDim > windowY){
+  //if the new position of the paddle would be off the screen you stop it
+  //off screen here is considered as the edges of the border rectangles
+  if(newYPos < windowY / 60 || newYPos + this -> yDim > windowY - windowY / 60){
     return;
   }
 
   this -> xPos = newXPos;
   this -> yPos = newYPos;
 }
-
+//change the size of the paddle
 void Paddle::changeSize(int newXDim, int newYDim){
   this -> xDim = newXDim;
   this -> yDim = newYDim;
 }
-
+//change the stored size of the window
 void Paddle::setWindowSize(int windowX, int windowY){
   this -> windowX = windowX;
   this -> windowY = windowY;
+  this -> scalePaddle();
+}
+
+//scale the paddle becasue of a window size changeSize
+void Paddle::scalePaddle(){
+  this -> xDim = (this -> windowX)/160;
+  this -> yDim = (this -> windowX)/20;
 }
 
 int Paddle::getXPos(){

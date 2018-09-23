@@ -20,6 +20,14 @@ Ball::Ball(float xPos, float yPos, int angle, int radius, int speed){
   this -> ballCircle = circle;
 }
 
+void Ball::reset(){
+  this -> xPos = (float)(this -> windowX / 2);
+  this -> yPos = (float)(this -> windowY / 2);
+  this -> angle = 180;
+  this -> radius =  (this -> windowX)/80;
+  this -> speed = (this -> windowY)/160;
+}
+
 void Ball::moveForward(){
   float changeInX = this -> calcXPosChange();
   float changeInY = this -> calcYPosChange();
@@ -100,6 +108,12 @@ void Ball::setSpeed(int speed){
 void Ball::setWindowSize(int windowX, int windowY){
   this -> windowX = windowX;
   this -> windowY = windowY;
+  this -> scaleBall();
+}
+
+//scale the ball because of a change in window size
+void Ball::scaleBall(){
+  this -> radius =  (this -> windowX)/80;
 }
 
 sf::FloatRect Ball::getGlobalBounds(){

@@ -5,13 +5,12 @@
 #include <SFML/Window.hpp>
 #include <memory>
 
-using std::shared_ptr;
 
 class KeyPress{
 
   public:
     KeyPress();
-    void processInput(sf::Event event, GameLogic *gameLogic);
+    void processInput(sf::Event event, GameLogic *gameLogic, sf::RenderWindow &game);
 };
 
 #endif

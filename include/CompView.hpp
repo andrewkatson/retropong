@@ -13,17 +13,20 @@ private:
   GameLogic *gameLogic;
   int ticksSinceLastMove;
 
+
 public:
   enum Difficulty {
     easy, medium, hard
   };
 
   CompView(GameLogic *gameLogic, Difficulty difficulty);
+  ~CompView();
 
-  void updateCompView(int deltaMs);
-  void followBall();
-  bool canMove();
-  int calcMaxTicksBeforeMove();
+  void updateCompView(int deltaS);
+  void followBall(int deltaS);
+  bool canMove(int deltaS);
+  int calcMaxTicksBeforeMove(int deltaS);
+  float calcBallXPosThresholdForMove(int deltaS);
 
 private:
   Difficulty difficulty;

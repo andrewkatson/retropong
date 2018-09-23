@@ -19,6 +19,8 @@ private:
 
   Paddle(int xPos, int yPos, int xDim, int yDim, int speed);
 
+  void reset(int compOrUser);
+
   void movePaddle(Direction direction);
 
   void updatePos(int newXPos, int newYPos);
@@ -26,6 +28,8 @@ private:
   void changeSize(int newXDim, int newYDim);
 
   void setWindowSize(int windowX, int windowY);
+
+  void scalePaddle();
 
   int getXPos();
 

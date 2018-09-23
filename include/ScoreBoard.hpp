@@ -13,6 +13,7 @@ public:
 
   ScoreBoard(int winningScore);
 
+  void reset();
   void incrementUserScore();
   void incrementCompScore();
   Side hasWon();

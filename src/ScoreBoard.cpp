@@ -7,6 +7,11 @@ ScoreBoard::ScoreBoard(int winningScore){
   this -> compScore = 0;
 }
 
+void ScoreBoard::reset(){
+  this -> userScore = 0;
+  this -> compScore = 0;
+}
+
 void ScoreBoard::incrementUserScore(){
   int userScore = this -> userScore + 1;
 

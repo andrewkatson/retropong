@@ -6,18 +6,22 @@ CompView::CompView(GameLogic *gameLogic, Difficulty difficulty){
   this -> ticksSinceLastMove = 0;
 }
 
-void CompView::updateCompView(int deltaMs){
-  this -> followBall();
+CompView::~CompView(){
+  this -> gameLogic = nullptr;
 }
 
-void CompView::followBall(){
+void CompView::updateCompView(int deltaS){
+  this -> followBall(deltaS);
+}
+
+void CompView::followBall(int deltaS){
   int ballX = this -> gameLogic -> getBallXPos();
   int ballY = this -> gameLogic -> getBallYPos();
 
   int compX = this -> gameLogic -> getCompXPos();
   int compY = this -> gameLogic -> getCompYPos();
 
-  if(this -> canMove()){
+  if(this -> canMove(deltaS)){
     if (ballY > compY){
       this -> gameLogic -> moveCompPaddleDown();
     }
@@ -27,10 +31,13 @@ void CompView::followBall(){
   }
 }
 
-bool CompView::canMove(){
-  int maxTicksBeforeMove = this -> calcMaxTicksBeforeMove();
+bool CompView::canMove(int deltaS){
+  int maxTicksBeforeMove = this -> calcMaxTicksBeforeMove(deltaS);
+  float ballXPosThresholdForMove = this -> calcBallXPosThresholdForMove(deltaS);
 
-  if(this -> ticksSinceLastMove > maxTicksBeforeMove){
+  int ballXPos = this -> gameLogic -> getBallXPos();
+
+  if(this -> ticksSinceLastMove > maxTicksBeforeMove && ballXPos >= ballXPosThresholdForMove){
     this -> ticksSinceLastMove = 0;
     return true;
   }
@@ -39,14 +46,27 @@ bool CompView::canMove(){
   return false;
 }
 
-int CompView::calcMaxTicksBeforeMove(){
+int CompView::calcMaxTicksBeforeMove(int deltaS){
   switch(this -> difficulty){
     case hard:
-      return 3000;
+      return 750;
     case medium:
-      return 5000;
+      return 1000;
     case easy:
     default:
-      return 8000;
+      return 2000;
+  }
+}
+float CompView::calcBallXPosThresholdForMove(int deltaS){
+  int windowX  = this -> gameLogic -> getWindowX();
+
+  switch(this -> difficulty){
+    case hard:
+      return (windowX / 6) * 1.5;
+    case medium:
+      return (windowX / 6) * 2;
+    case easy:
+    default:
+      return (windowX / 6) * 3;
   }
 }

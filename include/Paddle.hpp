@@ -16,6 +16,9 @@ private:
   enum Direction {
     up, down
   };
+  enum Difficulty {
+    easy, medium, hard
+  };
 
   Paddle(int xPos, int yPos, int xDim, int yDim, int speed);
 
@@ -29,6 +32,12 @@ private:
 
   void setWindowSize(int windowX, int windowY);
 
+  void setSpeed(int speed);
+
+  void setColor(sf::Color color);
+
+  void setDifficulty(Difficulty difficulty);
+
   void scalePaddle();
 
   int getXPos();
@@ -39,9 +48,14 @@ private:
 
   int getYDim();
 
-  void setSpeed(int speed);
+  Difficulty getDifficulty();
+
+  sf::Color getColor();
 
   sf::FloatRect getGlobalBounds();
+
+private:
+    Difficulty difficulty;
 };
 
 #endif

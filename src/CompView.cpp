@@ -1,8 +1,8 @@
 #include "CompView.hpp"
 
-CompView::CompView(GameLogic *gameLogic, Difficulty difficulty){
+CompView::CompView(GameLogic *gameLogic){
   this -> gameLogic = gameLogic;
-  this -> difficulty = difficulty;
+  this -> difficulty = Paddle::easy;
   this -> ticksSinceLastMove = 0;
 }
 
@@ -48,11 +48,11 @@ bool CompView::canMove(int deltaS){
 
 int CompView::calcMaxTicksBeforeMove(int deltaS){
   switch(this -> difficulty){
-    case hard:
+    case Paddle::hard:
       return 750;
-    case medium:
+    case Paddle::medium:
       return 1000;
-    case easy:
+    case Paddle::easy:
     default:
       return 2000;
   }
@@ -61,11 +61,11 @@ float CompView::calcBallXPosThresholdForMove(int deltaS){
   int windowX  = this -> gameLogic -> getWindowX();
 
   switch(this -> difficulty){
-    case hard:
+    case Paddle::hard:
       return (windowX / 6) * 1.5;
-    case medium:
+    case Paddle::medium:
       return (windowX / 6) * 2;
-    case easy:
+    case Paddle::easy:
     default:
       return (windowX / 6) * 3;
   }

@@ -30,6 +30,7 @@ private:
   sf::Text mainMenuText;
   sf::Text playGameText;
   sf::Text optionsMenuSelectText;
+  sf::Text quitGameText;
 
 public:
     UserView(GameLogic *gameLogic);
@@ -42,6 +43,12 @@ public:
     void drawMainMenuTitle(sf::RenderWindow &game);
     void drawSelectPlayMessageText(sf::RenderWindow &game);
     void drawSelectOptionsMenuText(sf::RenderWindow &game);
+    void drawSelectQuitText(sf::RenderWindow &game);
+
+    void drawSelectObjectList(sf::RenderWindow &game);
+    void drawSelectColorList(sf::RenderWindow &game);
+    void drawSelectDifficultyList(sf::RenderWindow &game);
+
     void drawUserPaddle(sf::RenderWindow &game);
     void drawCompPaddle(sf::RenderWindow &game);
     void drawBall(sf::RenderWindow &game);
@@ -56,7 +63,11 @@ public:
     void drawGoalBorders(sf::RenderWindow &game);
     void drawUserGoal(sf::RenderWindow &game);
     void drawCompGoal(sf::RenderWindow &game);
+
     void drawEndGameMessage(sf::RenderWindow &game);
+
+    void drawDropDownExpanded(DropDown &dropDown, sf::RenderWindow &game);
+    void drawDropDownSingleOption(DropDown &dropDown, sf::RenderWindow &game);
 
     string getWinnerString();
 

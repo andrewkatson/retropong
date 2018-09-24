@@ -1,10 +1,11 @@
 #include "Border.hpp"
 
 
-Border::Border(int xPos, int yPos, int xDim, int yDim, BorderType borderType){
+Border::Border(int xPos, int yPos, int xDim, int yDim, BorderType borderType, sf::Color color){
   (this -> rect).setPosition(xPos, yPos);
   (this -> rect).setSize(sf::Vector2f(xDim, yDim));
   this -> type = borderType;
+  (this -> rect).setFillColor(color);
 }
 
 int Border::getXPos(){
@@ -23,10 +24,17 @@ int Border::getYDim(){
   sf::Vector2f dim = (this -> rect).getSize();
   return  dim.y;
 }
+sf::Color Border::getColor(){
+  return (this -> rect).getFillColor();
+}
+
 void Border::setWindowSize(int windowX, int windowY){
   this -> windowX = windowX;
   this -> windowY = windowY;
   this -> scaleBorder();
+}
+void Border::setColor(sf::Color color){
+  (this -> rect).setFillColor(color);
 }
 
 //scale the border because of a window resize

@@ -39,12 +39,14 @@ public:
   int getRadius();
   int getSpeed();
   int getBallResetSpeed();
+  sf::Color getColor();
 
   void setXPos(float xPos);
   void setYPos(float yPos);
   void setAngle(int angle);
   void setSpeed(int speed);
   void setWindowSize(int windowX, int windowY);
+  void setColor(sf::Color color);
 
   void scaleBall();
 

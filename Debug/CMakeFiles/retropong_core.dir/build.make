@@ -129,9 +129,33 @@ CMakeFiles/retropong_core.dir/src/CompView.cpp.o.provides: CMakeFiles/retropong_
 CMakeFiles/retropong_core.dir/src/CompView.cpp.o.provides.build: CMakeFiles/retropong_core.dir/src/CompView.cpp.o
 
 
+CMakeFiles/retropong_core.dir/src/DropDown.cpp.o: CMakeFiles/retropong_core.dir/flags.make
+CMakeFiles/retropong_core.dir/src/DropDown.cpp.o: ../src/DropDown.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrew/retropong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/retropong_core.dir/src/DropDown.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/retropong_core.dir/src/DropDown.cpp.o -c /home/andrew/retropong/src/DropDown.cpp
+
+CMakeFiles/retropong_core.dir/src/DropDown.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/retropong_core.dir/src/DropDown.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/andrew/retropong/src/DropDown.cpp > CMakeFiles/retropong_core.dir/src/DropDown.cpp.i
+
+CMakeFiles/retropong_core.dir/src/DropDown.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/retropong_core.dir/src/DropDown.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/andrew/retropong/src/DropDown.cpp -o CMakeFiles/retropong_core.dir/src/DropDown.cpp.s
+
+CMakeFiles/retropong_core.dir/src/DropDown.cpp.o.requires:
+
+.PHONY : CMakeFiles/retropong_core.dir/src/DropDown.cpp.o.requires
+
+CMakeFiles/retropong_core.dir/src/DropDown.cpp.o.provides: CMakeFiles/retropong_core.dir/src/DropDown.cpp.o.requires
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/DropDown.cpp.o.provides.build
+.PHONY : CMakeFiles/retropong_core.dir/src/DropDown.cpp.o.provides
+
+CMakeFiles/retropong_core.dir/src/DropDown.cpp.o.provides.build: CMakeFiles/retropong_core.dir/src/DropDown.cpp.o
+
+
 CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o: CMakeFiles/retropong_core.dir/flags.make
 CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o: ../src/GameLogic.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrew/retropong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrew/retropong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o -c /home/andrew/retropong/src/GameLogic.cpp
 
 CMakeFiles/retropong_core.dir/src/GameLogic.cpp.i: cmake_force
@@ -155,7 +179,7 @@ CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o.provides.build: CMakeFiles/ret
 
 CMakeFiles/retropong_core.dir/src/KeyPress.cpp.o: CMakeFiles/retropong_core.dir/flags.make
 CMakeFiles/retropong_core.dir/src/KeyPress.cpp.o: ../src/KeyPress.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrew/retropong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/retropong_core.dir/src/KeyPress.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrew/retropong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/retropong_core.dir/src/KeyPress.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/retropong_core.dir/src/KeyPress.cpp.o -c /home/andrew/retropong/src/KeyPress.cpp
 
 CMakeFiles/retropong_core.dir/src/KeyPress.cpp.i: cmake_force
@@ -179,7 +203,7 @@ CMakeFiles/retropong_core.dir/src/KeyPress.cpp.o.provides.build: CMakeFiles/retr
 
 CMakeFiles/retropong_core.dir/src/MainMenu.cpp.o: CMakeFiles/retropong_core.dir/flags.make
 CMakeFiles/retropong_core.dir/src/MainMenu.cpp.o: ../src/MainMenu.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrew/retropong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/retropong_core.dir/src/MainMenu.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrew/retropong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/retropong_core.dir/src/MainMenu.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/retropong_core.dir/src/MainMenu.cpp.o -c /home/andrew/retropong/src/MainMenu.cpp
 
 CMakeFiles/retropong_core.dir/src/MainMenu.cpp.i: cmake_force
@@ -203,7 +227,7 @@ CMakeFiles/retropong_core.dir/src/MainMenu.cpp.o.provides.build: CMakeFiles/retr
 
 CMakeFiles/retropong_core.dir/src/MousePress.cpp.o: CMakeFiles/retropong_core.dir/flags.make
 CMakeFiles/retropong_core.dir/src/MousePress.cpp.o: ../src/MousePress.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrew/retropong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/retropong_core.dir/src/MousePress.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrew/retropong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/retropong_core.dir/src/MousePress.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/retropong_core.dir/src/MousePress.cpp.o -c /home/andrew/retropong/src/MousePress.cpp
 
 CMakeFiles/retropong_core.dir/src/MousePress.cpp.i: cmake_force
@@ -225,9 +249,33 @@ CMakeFiles/retropong_core.dir/src/MousePress.cpp.o.provides: CMakeFiles/retropon
 CMakeFiles/retropong_core.dir/src/MousePress.cpp.o.provides.build: CMakeFiles/retropong_core.dir/src/MousePress.cpp.o
 
 
+CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.o: CMakeFiles/retropong_core.dir/flags.make
+CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.o: ../src/OptionMenu.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrew/retropong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.o -c /home/andrew/retropong/src/OptionMenu.cpp
+
+CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/andrew/retropong/src/OptionMenu.cpp > CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.i
+
+CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/andrew/retropong/src/OptionMenu.cpp -o CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.s
+
+CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.o.requires:
+
+.PHONY : CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.o.requires
+
+CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.o.provides: CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.o.requires
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.o.provides.build
+.PHONY : CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.o.provides
+
+CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.o.provides.build: CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.o
+
+
 CMakeFiles/retropong_core.dir/src/Paddle.cpp.o: CMakeFiles/retropong_core.dir/flags.make
 CMakeFiles/retropong_core.dir/src/Paddle.cpp.o: ../src/Paddle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrew/retropong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/retropong_core.dir/src/Paddle.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrew/retropong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/retropong_core.dir/src/Paddle.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/retropong_core.dir/src/Paddle.cpp.o -c /home/andrew/retropong/src/Paddle.cpp
 
 CMakeFiles/retropong_core.dir/src/Paddle.cpp.i: cmake_force
@@ -251,7 +299,7 @@ CMakeFiles/retropong_core.dir/src/Paddle.cpp.o.provides.build: CMakeFiles/retrop
 
 CMakeFiles/retropong_core.dir/src/ScoreBoard.cpp.o: CMakeFiles/retropong_core.dir/flags.make
 CMakeFiles/retropong_core.dir/src/ScoreBoard.cpp.o: ../src/ScoreBoard.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrew/retropong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/retropong_core.dir/src/ScoreBoard.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrew/retropong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/retropong_core.dir/src/ScoreBoard.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/retropong_core.dir/src/ScoreBoard.cpp.o -c /home/andrew/retropong/src/ScoreBoard.cpp
 
 CMakeFiles/retropong_core.dir/src/ScoreBoard.cpp.i: cmake_force
@@ -275,7 +323,7 @@ CMakeFiles/retropong_core.dir/src/ScoreBoard.cpp.o.provides.build: CMakeFiles/re
 
 CMakeFiles/retropong_core.dir/src/UserView.cpp.o: CMakeFiles/retropong_core.dir/flags.make
 CMakeFiles/retropong_core.dir/src/UserView.cpp.o: ../src/UserView.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrew/retropong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/retropong_core.dir/src/UserView.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrew/retropong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/retropong_core.dir/src/UserView.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/retropong_core.dir/src/UserView.cpp.o -c /home/andrew/retropong/src/UserView.cpp
 
 CMakeFiles/retropong_core.dir/src/UserView.cpp.i: cmake_force
@@ -302,10 +350,12 @@ retropong_core_OBJECTS = \
 "CMakeFiles/retropong_core.dir/src/Ball.cpp.o" \
 "CMakeFiles/retropong_core.dir/src/Border.cpp.o" \
 "CMakeFiles/retropong_core.dir/src/CompView.cpp.o" \
+"CMakeFiles/retropong_core.dir/src/DropDown.cpp.o" \
 "CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o" \
 "CMakeFiles/retropong_core.dir/src/KeyPress.cpp.o" \
 "CMakeFiles/retropong_core.dir/src/MainMenu.cpp.o" \
 "CMakeFiles/retropong_core.dir/src/MousePress.cpp.o" \
+"CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.o" \
 "CMakeFiles/retropong_core.dir/src/Paddle.cpp.o" \
 "CMakeFiles/retropong_core.dir/src/ScoreBoard.cpp.o" \
 "CMakeFiles/retropong_core.dir/src/UserView.cpp.o"
@@ -316,16 +366,18 @@ retropong_core_EXTERNAL_OBJECTS =
 libretropong_core.a: CMakeFiles/retropong_core.dir/src/Ball.cpp.o
 libretropong_core.a: CMakeFiles/retropong_core.dir/src/Border.cpp.o
 libretropong_core.a: CMakeFiles/retropong_core.dir/src/CompView.cpp.o
+libretropong_core.a: CMakeFiles/retropong_core.dir/src/DropDown.cpp.o
 libretropong_core.a: CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o
 libretropong_core.a: CMakeFiles/retropong_core.dir/src/KeyPress.cpp.o
 libretropong_core.a: CMakeFiles/retropong_core.dir/src/MainMenu.cpp.o
 libretropong_core.a: CMakeFiles/retropong_core.dir/src/MousePress.cpp.o
+libretropong_core.a: CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.o
 libretropong_core.a: CMakeFiles/retropong_core.dir/src/Paddle.cpp.o
 libretropong_core.a: CMakeFiles/retropong_core.dir/src/ScoreBoard.cpp.o
 libretropong_core.a: CMakeFiles/retropong_core.dir/src/UserView.cpp.o
 libretropong_core.a: CMakeFiles/retropong_core.dir/build.make
 libretropong_core.a: CMakeFiles/retropong_core.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/andrew/retropong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX static library libretropong_core.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/andrew/retropong/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX static library libretropong_core.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/retropong_core.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/retropong_core.dir/link.txt --verbose=$(VERBOSE)
 
@@ -337,10 +389,12 @@ CMakeFiles/retropong_core.dir/build: libretropong_core.a
 CMakeFiles/retropong_core.dir/requires: CMakeFiles/retropong_core.dir/src/Ball.cpp.o.requires
 CMakeFiles/retropong_core.dir/requires: CMakeFiles/retropong_core.dir/src/Border.cpp.o.requires
 CMakeFiles/retropong_core.dir/requires: CMakeFiles/retropong_core.dir/src/CompView.cpp.o.requires
+CMakeFiles/retropong_core.dir/requires: CMakeFiles/retropong_core.dir/src/DropDown.cpp.o.requires
 CMakeFiles/retropong_core.dir/requires: CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o.requires
 CMakeFiles/retropong_core.dir/requires: CMakeFiles/retropong_core.dir/src/KeyPress.cpp.o.requires
 CMakeFiles/retropong_core.dir/requires: CMakeFiles/retropong_core.dir/src/MainMenu.cpp.o.requires
 CMakeFiles/retropong_core.dir/requires: CMakeFiles/retropong_core.dir/src/MousePress.cpp.o.requires
+CMakeFiles/retropong_core.dir/requires: CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.o.requires
 CMakeFiles/retropong_core.dir/requires: CMakeFiles/retropong_core.dir/src/Paddle.cpp.o.requires
 CMakeFiles/retropong_core.dir/requires: CMakeFiles/retropong_core.dir/src/ScoreBoard.cpp.o.requires
 CMakeFiles/retropong_core.dir/requires: CMakeFiles/retropong_core.dir/src/UserView.cpp.o.requires

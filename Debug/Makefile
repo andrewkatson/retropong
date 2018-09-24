@@ -244,6 +244,33 @@ src/CompView.cpp.s:
 	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/CompView.cpp.s
 .PHONY : src/CompView.cpp.s
 
+src/DropDown.o: src/DropDown.cpp.o
+
+.PHONY : src/DropDown.o
+
+# target to build an object file
+src/DropDown.cpp.o:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/DropDown.cpp.o
+.PHONY : src/DropDown.cpp.o
+
+src/DropDown.i: src/DropDown.cpp.i
+
+.PHONY : src/DropDown.i
+
+# target to preprocess a source file
+src/DropDown.cpp.i:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/DropDown.cpp.i
+.PHONY : src/DropDown.cpp.i
+
+src/DropDown.s: src/DropDown.cpp.s
+
+.PHONY : src/DropDown.s
+
+# target to generate assembly for a file
+src/DropDown.cpp.s:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/DropDown.cpp.s
+.PHONY : src/DropDown.cpp.s
+
 src/GameLogic.o: src/GameLogic.cpp.o
 
 .PHONY : src/GameLogic.o
@@ -352,6 +379,33 @@ src/MousePress.cpp.s:
 	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/MousePress.cpp.s
 .PHONY : src/MousePress.cpp.s
 
+src/OptionMenu.o: src/OptionMenu.cpp.o
+
+.PHONY : src/OptionMenu.o
+
+# target to build an object file
+src/OptionMenu.cpp.o:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.o
+.PHONY : src/OptionMenu.cpp.o
+
+src/OptionMenu.i: src/OptionMenu.cpp.i
+
+.PHONY : src/OptionMenu.i
+
+# target to preprocess a source file
+src/OptionMenu.cpp.i:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.i
+.PHONY : src/OptionMenu.cpp.i
+
+src/OptionMenu.s: src/OptionMenu.cpp.s
+
+.PHONY : src/OptionMenu.s
+
+# target to generate assembly for a file
+src/OptionMenu.cpp.s:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.s
+.PHONY : src/OptionMenu.cpp.s
+
 src/Paddle.o: src/Paddle.cpp.o
 
 .PHONY : src/Paddle.o
@@ -455,6 +509,9 @@ help:
 	@echo "... src/CompView.o"
 	@echo "... src/CompView.i"
 	@echo "... src/CompView.s"
+	@echo "... src/DropDown.o"
+	@echo "... src/DropDown.i"
+	@echo "... src/DropDown.s"
 	@echo "... src/GameLogic.o"
 	@echo "... src/GameLogic.i"
 	@echo "... src/GameLogic.s"
@@ -467,6 +524,9 @@ help:
 	@echo "... src/MousePress.o"
 	@echo "... src/MousePress.i"
 	@echo "... src/MousePress.s"
+	@echo "... src/OptionMenu.o"
+	@echo "... src/OptionMenu.i"
+	@echo "... src/OptionMenu.s"
 	@echo "... src/Paddle.o"
 	@echo "... src/Paddle.i"
 	@echo "... src/Paddle.s"

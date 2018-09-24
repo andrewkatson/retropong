@@ -11,13 +11,16 @@ public:
     top, left, right, bottom
   };
 
-  Border(int xPos, int yPos, int xDim, int yDim, BorderType borderType);
+  Border(int xPos, int yPos, int xDim, int yDim, BorderType borderType, sf::Color color);
 
   int getXPos();
   int getYPos();
   int getXDim();
   int getYDim();
+  sf::Color getColor();
+
   void setWindowSize(int windowX, int windowY);
+  void setColor(sf::Color color);
 
   void scaleBorder();
   void scaleTopBorder();

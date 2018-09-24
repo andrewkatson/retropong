@@ -1,10 +1,10 @@
 #include "Game.hpp"
+#include <iostream>
 
 int main(){
-
   //make a Game
   auto pongGame = unique_ptr<Game>(new Game());
-
+;
   //start game clock
   sf::Clock gameClock;
 
@@ -17,7 +17,7 @@ int main(){
   while(game.isOpen())
   {
     sf::Time timeDelta = gameClock.restart();
-    int deltaS = timeDelta.asMilliseconds();
+    float deltaS = timeDelta.asSeconds();
     pongGame -> updateGame(deltaS, game);
 
   }
@@ -49,8 +49,7 @@ void Game::initGame(sf::RenderWindow  &game){
   //initialize the User View
   this -> userView = unique_ptr<UserView>(new UserView((this -> gameLogic).get()));
   //initlaize the Computer View
-  this -> compView = unique_ptr<CompView>(new CompView((this -> gameLogic).get(),
-                                          CompView::easy));
+  this -> compView = unique_ptr<CompView>(new CompView((this -> gameLogic).get()));
 }
 
 

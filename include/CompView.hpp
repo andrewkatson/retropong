@@ -15,11 +15,8 @@ private:
 
 
 public:
-  enum Difficulty {
-    easy, medium, hard
-  };
 
-  CompView(GameLogic *gameLogic, Difficulty difficulty);
+  CompView(GameLogic *gameLogic);
   ~CompView();
 
   void updateCompView(int deltaS);
@@ -29,7 +26,7 @@ public:
   float calcBallXPosThresholdForMove(int deltaS);
 
 private:
-  Difficulty difficulty;
+  Paddle::Difficulty difficulty;
 };
 
 #endif

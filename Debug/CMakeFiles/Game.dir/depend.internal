@@ -5,11 +5,13 @@ CMakeFiles/Game.dir/bin/Game.cpp.o
  ../include/Ball.hpp
  ../include/Border.hpp
  ../include/CompView.hpp
+ ../include/DropDown.hpp
  ../include/Game.hpp
  ../include/GameLogic.hpp
  ../include/KeyPress.hpp
  ../include/MainMenu.hpp
  ../include/MousePress.hpp
+ ../include/OptionMenu.hpp
  ../include/Paddle.hpp
  ../include/ScoreBoard.hpp
  ../include/UserView.hpp

@@ -7,6 +7,7 @@
 #include "Ball.hpp"
 #include "Border.hpp"
 #include "MainMenu.hpp"
+#include "OptionMenu.hpp"
 #include <SFML/Graphics.hpp>
 #include <memory>
 #include <ctime>
@@ -30,6 +31,8 @@ public:
   unique_ptr<Border> leftBorder;
   unique_ptr<Border> rightBorder;
   unique_ptr<MainMenu> mainMenu;
+  unique_ptr<OptionMenu> optionMenu;
+
   int windowX;
   int windowY;
   bool isPaused;
@@ -49,6 +52,17 @@ public:
   void updateWindowSize(int windowX, int windowY);
   void updateLogic(int deltaS);
 
+  void handleClickedDropDown(vector<int> clickDropDown);
+
+  void handleClickedGameObjectSelect(int objectSelectedIndex);
+  void handleClickedColorSelect(int objectSelectedIndex);
+  void handleClickedDifficultySelect(int objectSelectedIndex);
+
+  void switchColor(string chosenColor);
+  sf::Color getCurrentlySelectedColor();
+  Paddle::Difficulty getCurrentlySelectedDifficulty();
+  int getColorIndexOfCurrentlySelectedObject();
+  sf::Color getColorOfObject(string objectName);
 
   void moveUserPaddleDown();
   void moveUserPaddleUp();
@@ -90,11 +104,13 @@ public:
   int getUserYDim();
   int getUserXPos();
   int getUserYPos();
+  sf::Color getUserPaddleColor();
 
   int getCompXDim();
   int getCompYDim();
   int getCompXPos();
   int getCompYPos();
+  sf::Color getCompPaddleColor();
 
   float getBallXPos();
   float getBallYPos();
@@ -102,6 +118,7 @@ public:
   int getBallAngle();
   int getBallSpeed();
   int getBallResetSpeed();
+  sf::Color getBallColor();
 
   int getWindowX();
   int getWindowY();
@@ -110,21 +127,25 @@ public:
   int getTopBorderYDim();
   int getTopBorderXPos();
   int getTopBorderYPos();
+  sf::Color getTopBorderColor();
 
   int getBottomBorderXDim();
   int getBottomBorderYDim();
   int getBottomBorderXPos();
   int getBottomBorderYPos();
+  sf::Color getBottomBorderColor();
 
   int getLeftBorderXDim();
   int getLeftBorderYDim();
   int getLeftBorderXPos();
   int getLeftBorderYPos();
+  sf::Color getLeftBorderColor();
 
   int getRightBorderXDim();
   int getRightBorderYDim();
   int getRightBorderXPos();
   int getRightBorderYPos();
+  sf::Color getRightBorderColor();
 
   sf::FloatRect getMainMenuPlayButtonBoundBox();
   int getMainMenuPlayButtonCharSize();
@@ -132,13 +153,38 @@ public:
   sf::FloatRect getMainMenuOptionMenuButtonBoundBox();
   int getMainMenuOptionMenuButtonCharSize();
 
+  sf::FloatRect getMainMenuQuitButtonBoundBox();
+  int getMainMenuQuitButtonCharSize();
+
+  DropDown * getOptionMenuObjectSelect();
+
+  DropDown * getOptionMenuColorSelect();
+
+  DropDown * getOptionMenuDifficultySelect();
+
+  int getGameObjectSelected();
+
+  int getGameDifficultySelected();
+
+  void setTopBorderColor(sf::Color &color);
+
+  void setBottomBorderColor(sf::Color &color);
+
+  void setLeftBorderColor(sf::Color &color);
+
+  void setRightBorderColor(sf::Color &color);
+
   void setBallXPos(float newXPos);
   void setBallYPos(float newYPos);
   void setBallAngle(int newAngle);
   void setBallSpeed(int newSpeed);
+  void setBallColor(sf::Color &color);
 
   void setUserPaddleSpeed(int newSpeed);
+  void setUserPaddleColor(sf::Color &color);
+
   void setCompPaddleSpeed(int newSpeed);
+  void setCompPaddleColor(sf::Color &color);
 };
 
 #endif

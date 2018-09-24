@@ -91,6 +91,10 @@ int Ball::getSpeed(){
 int Ball::getBallResetSpeed(){
   return this -> resetSpeed;
 }
+sf::Color Ball::getColor(){
+  return (this -> ballCircle).getFillColor();
+}
+
 
 void Ball::setXPos(float xPos){
   this -> xPos = xPos;
@@ -109,6 +113,9 @@ void Ball::setWindowSize(int windowX, int windowY){
   this -> windowX = windowX;
   this -> windowY = windowY;
   this -> scaleBall();
+}
+void Ball::setColor(sf::Color color){
+  (this -> ballCircle).setFillColor(color);
 }
 
 //scale the ball because of a change in window size

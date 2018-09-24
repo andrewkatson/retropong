@@ -30,8 +30,18 @@ void UserView::updateUserView(int deltaS, sf::RenderWindow &game){
     this -> drawMainMenuTitle(game);
     this -> drawSelectPlayMessageText(game);
     this -> drawSelectOptionsMenuText(game);
+    this -> drawSelectQuitText(game);
   }
   else if(this -> gameLogic -> isOptionsMenuOn()){
+
+    this -> drawSelectObjectList(game);
+    this -> drawSelectColorList(game);
+    //index corresponding to the game object being modified
+    //some objects do not have the same set of drop down for options
+    int objectSelected = this -> gameLogic -> getGameObjectSelected();
+    if(objectSelected == 0){
+      this -> drawSelectDifficultyList(game);
+    }
 
   }
   else if(!(this -> gameLogic -> isGameEnded())){
@@ -127,6 +137,62 @@ void UserView::drawSelectOptionsMenuText(sf::RenderWindow &game){
   game.draw((this -> optionsMenuSelectText));
 }
 
+void UserView::drawSelectQuitText(sf::RenderWindow &game){
+  (this -> quitGameText).setFont(this -> mainFont);
+
+  int xPos = this -> gameLogic -> getWindowX();
+  int yPos = this -> gameLogic -> getWindowY();
+
+  (this -> quitGameText).setString("Quit");
+
+  (this -> quitGameText).setCharacterSize(xPos / 16);
+
+  (this -> quitGameText).setFillColor(sf::Color::White);
+
+  (this -> quitGameText).setStyle(sf::Text::Bold);
+
+  (this -> quitGameText).setPosition((xPos/4), (yPos / 6)*4);
+
+  game.draw((this -> quitGameText));
+}
+
+void UserView::drawSelectObjectList(sf::RenderWindow &game){
+
+  DropDown *selectObjectDropDown = (this -> gameLogic -> getOptionMenuObjectSelect());
+
+  if(selectObjectDropDown -> isExpanded()){
+    this -> drawDropDownExpanded(*selectObjectDropDown, game);
+  }
+  else{
+    this -> drawDropDownSingleOption(*selectObjectDropDown, game);
+  }
+
+}
+
+void UserView::drawSelectColorList(sf::RenderWindow &game){
+  DropDown *selectColorDropDown = (this -> gameLogic -> getOptionMenuColorSelect());
+
+
+  if(selectColorDropDown -> isExpanded()){
+      this -> drawDropDownExpanded(*selectColorDropDown, game);
+  }
+  else{
+      this -> drawDropDownSingleOption(*selectColorDropDown, game);
+  }
+}
+
+void UserView::drawSelectDifficultyList(sf::RenderWindow &game){
+  DropDown *selectDifficulty = (this -> gameLogic -> getOptionMenuDifficultySelect());
+
+
+  if(selectDifficulty -> isExpanded()){
+      this -> drawDropDownExpanded(*selectDifficulty, game);
+  }
+  else{
+      this -> drawDropDownSingleOption(*selectDifficulty, game);
+  }
+}
+
 void UserView::drawUserPaddle(sf::RenderWindow &game){
   sf::RectangleShape rectangle;
 
@@ -134,8 +200,9 @@ void UserView::drawUserPaddle(sf::RenderWindow &game){
   int yPos = this -> gameLogic -> getUserYPos();
   int xDim = this -> gameLogic -> getUserXDim();
   int yDim = this -> gameLogic -> getUserYDim();
+  sf::Color userPaddleColor = this -> gameLogic -> getUserPaddleColor();
 
-  rectangle.setFillColor(sf::Color::White);
+  rectangle.setFillColor(userPaddleColor);
   rectangle.setSize(sf::Vector2f(xDim,yDim));
   rectangle.setPosition(xPos, yPos);
 
@@ -150,8 +217,9 @@ void UserView::drawCompPaddle(sf::RenderWindow &game) {
   int yPos = this -> gameLogic -> getCompYPos();
   int xDim = this -> gameLogic -> getCompXDim();
   int yDim = this -> gameLogic -> getCompYDim();
+  sf::Color compPaddleColor = this -> gameLogic -> getCompPaddleColor();
 
-  rectangle.setFillColor(sf::Color::White);
+  rectangle.setFillColor(compPaddleColor);
   rectangle.setSize(sf::Vector2f(xDim,yDim));
   rectangle.setPosition(xPos, yPos);
 
@@ -167,10 +235,11 @@ void UserView::drawBall(sf::RenderWindow &game){
   float yPos = (float) (this -> gameLogic -> getBallYPos());
   float angle = (float) (this -> gameLogic -> getBallAngle());
   float radius = (float) (this -> gameLogic -> getBallRadius());
+  sf::Color ballColor = this -> gameLogic -> getBallColor();
 
   circle.setPosition(sf::Vector2f(xPos, yPos));
   circle.setRadius(radius);
-  circle.setFillColor(sf::Color::White);
+  circle.setFillColor(ballColor);
   game.draw(circle);
 
   /*
@@ -284,8 +353,9 @@ void UserView::drawTopBorder(sf::RenderWindow &game){
   int topBorderXDim = this -> gameLogic -> getTopBorderXDim();
   int topBorderXPos = this -> gameLogic -> getTopBorderXPos();
   int topBorderYPos = this -> gameLogic -> getTopBorderYPos();
+  sf::Color topBorderColor = this -> gameLogic -> getTopBorderColor();
 
-  rectangle.setFillColor(sf::Color::Red);
+  rectangle.setFillColor(topBorderColor);
   rectangle.setSize(sf::Vector2f(topBorderXDim,topBorderYDim));
   rectangle.setPosition(topBorderXPos, topBorderYPos);
 
@@ -299,8 +369,9 @@ void UserView::drawBottomBorder(sf::RenderWindow &game){
   int bottomBorderXDim = this -> gameLogic -> getBottomBorderXDim();
   int bottomBorderXPos = this -> gameLogic -> getBottomBorderXPos();
   int bottomBorderYPos = this -> gameLogic -> getBottomBorderYPos();
+  sf::Color bottomBorderColor = this -> gameLogic -> getBottomBorderColor();
 
-  rectangle.setFillColor(sf::Color::Red);
+  rectangle.setFillColor(bottomBorderColor);
   rectangle.setSize(sf::Vector2f(bottomBorderXDim, bottomBorderYDim));
   rectangle.setPosition(bottomBorderXPos, bottomBorderYPos);
 
@@ -319,8 +390,9 @@ void UserView::drawUserGoal(sf::RenderWindow &game){
   int leftBorderXDim = this -> gameLogic -> getLeftBorderXDim();
   int leftBorderXPos = this -> gameLogic -> getLeftBorderXPos();
   int leftBorderYPos = this -> gameLogic -> getLeftBorderYPos();
+  sf::Color leftBorderColor = this -> gameLogic -> getLeftBorderColor();
 
-  rectangle.setFillColor(sf::Color::Green);
+  rectangle.setFillColor(leftBorderColor);
   rectangle.setSize(sf::Vector2f(leftBorderXDim, leftBorderYDim));
   rectangle.setPosition(leftBorderXPos, leftBorderYPos);
 
@@ -334,8 +406,9 @@ void UserView::drawCompGoal(sf::RenderWindow &game){
   int rightBorderXDim = this -> gameLogic -> getRightBorderXDim();
   int rightBorderXPos = this -> gameLogic -> getRightBorderXPos();
   int rightBorderYPos = this -> gameLogic -> getRightBorderYPos();
+  sf::Color rightBorderColor = this -> gameLogic -> getRightBorderColor();
 
-  rectangle.setFillColor(sf::Color::Green);
+  rectangle.setFillColor(rightBorderColor);
   rectangle.setSize(sf::Vector2f(rightBorderXDim, rightBorderYDim));
   rectangle.setPosition(rightBorderXPos, rightBorderYPos);
 
@@ -364,6 +437,50 @@ void UserView::drawEndGameMessage(sf::RenderWindow &game){
 
     game.draw((this -> restartText));
 
+}
+
+void UserView::drawDropDownExpanded(DropDown &dropDown, sf::RenderWindow &game){
+  vector<sf::RectangleShape> optionsRects = dropDown.getOptionsRects();
+  vector<sf::Text> optionsTexts = dropDown.getOptionsTexts();
+  int numOptions = dropDown.getNumOptions();
+
+  for(int i = 0; i < numOptions; i++){
+    game.draw(optionsRects[i]);
+    (optionsTexts[i].setFont(this -> mainFont));
+    game.draw(optionsTexts[i]);
+  }
+}
+void UserView::drawDropDownSingleOption(DropDown &dropDown, sf::RenderWindow &game){
+  int selectedItemIndex = dropDown.getSelectedItemIndex();
+  sf::Text chosenText = dropDown.getSelectedOptionText(selectedItemIndex);
+  sf::RectangleShape chosenRect = dropDown.getSelectedOptionRect(selectedItemIndex);
+
+  //we keep track of the original y position it should be in
+  //becuase we want it to appear at the top of the page when it is selected
+  //and the drop down list is not extended. when the list is extended we
+  //want it to appear in its proper y positon
+  sf::Vector2f pos = chosenRect.getPosition();
+  int originalYPos = pos.y;
+  int originalXpos = pos.x;
+
+  //same reposition of the text
+  sf::Vector2f textPos = chosenText.getPosition();
+  int originalTextXPos = textPos.x;
+  int originalTextYPos = textPos.y;
+
+  //temporarily make the y position at the top for the rect
+  chosenRect.setPosition(originalXpos, 0);
+  //change y position of the text temporarily as well
+  chosenText.setPosition(originalTextXPos, 0);
+
+  (chosenText.setFont(this -> mainFont));
+  game.draw(chosenText);
+  game.draw(chosenRect);
+
+  //then reset the position
+  chosenRect.setPosition(originalXpos, originalYPos);
+  //reset the text position too
+  chosenText.setPosition(originalTextXPos, originalTextYPos);
 }
 
 string UserView::getWinnerString(){

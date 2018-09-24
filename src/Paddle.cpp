@@ -75,6 +75,18 @@ void Paddle::setWindowSize(int windowX, int windowY){
   this -> scalePaddle();
 }
 
+void Paddle::setSpeed(int speed){
+  this -> speed = speed;
+}
+
+void Paddle::setColor(sf::Color color){
+  (this -> paddleRect).setFillColor(color);
+}
+
+void Paddle::setDifficulty(Difficulty difficulty){
+  this -> difficulty = difficulty;
+}
+
 //scale the paddle becasue of a window size changeSize
 void Paddle::scalePaddle(){
   this -> xDim = (this -> windowX)/160;
@@ -97,10 +109,13 @@ int Paddle::getYDim(){
   return this -> yDim;
 }
 
-void Paddle::setSpeed(int speed){
-  this -> speed = speed;
+Paddle::Difficulty Paddle::getDifficulty(){
+  return this -> difficulty;
 }
 
+sf::Color Paddle::getColor(){
+  return (this -> paddleRect).getFillColor();
+}
 sf::FloatRect Paddle::getGlobalBounds(){
   this -> paddleRect.setSize(sf::Vector2f(this -> getXDim(),this -> getYDim()));
   this -> paddleRect.setPosition(this -> getXPos(), this -> getYPos());

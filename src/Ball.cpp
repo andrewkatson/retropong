@@ -4,12 +4,11 @@
 Ball::Ball(float xPos, float yPos, int angle, int radius, float speed){
   this -> xPos = xPos;
   this -> yPos = yPos;
-  cout << xPos << std::endl;
   this -> angle = angle;
   this -> radius = radius;
   this -> speed = speed;
   this -> resetSpeed = speed;
-
+  this -> ticks = 0;
   sf::CircleShape circle;
 
   circle.setPosition(sf::Vector2f(xPos, yPos));
@@ -36,20 +35,28 @@ void Ball::moveForward(float deltaS){
   if(changeInX > this -> windowX || changeInY > this -> windowY){
     return;
   }
+  if(!(this -> ballCanMove(deltaS))){
+    return;
+  }
+  //cout << "Ball move " << std::endl;
+  //cout << "speed " << this -> speed << std::endl;
+  //cout << "x change " << changeInX << std::endl;
+  //cout << "y change " << changeInY << std::endl;
   this -> updatePos(xPos + changeInX, yPos + changeInY);
 }
 
 float Ball::calcXPosChange(float deltaS){
-  float speed = (float) this -> getSpeed();
+  float speed =  this -> getSpeed();
   float angle = (float) this -> getAngle();
 
-  return (deltaS * speed * cos((angle * PI)/180.0));
+  return deltaS * (speed * cos((angle * PI)/180.0));
 }
 
 float Ball::calcYPosChange(float deltaS){
   float speed = (float) this -> getSpeed();
   float angle = (float) this -> getAngle();
-  return (deltaS * speed * sin((angle * PI)/180.0));
+
+  return deltaS *(speed * sin((angle * PI)/180.0));
 }
 
 void Ball::updatePos(float xPos, float yPos){
@@ -109,6 +116,20 @@ void Ball::setColor(sf::Color color){
 //scale the ball because of a change in window size
 void Ball::scaleBall(){
   this -> radius =  (this -> windowX)/80;
+}
+
+bool Ball::ballCanMove(float deltaS){
+  if(this -> ticks > this -> calcMaxTicksBeforeMove(deltaS)){
+    this -> ticks = 0;
+    return true;
+  }
+  this -> ticks++;
+  return false;
+}
+
+//calculate the maximum ticks before the ball can move
+float Ball::calcMaxTicksBeforeMove(float deltaS){
+  return 200 * deltaS;
 }
 
 sf::FloatRect Ball::getGlobalBounds(){

@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -123,6 +123,8 @@ memory
 ../include/Paddle.hpp
 SFML/Graphics.hpp
 -
+iostream
+-
 
 ../include/ScoreBoard.hpp
 
@@ -148,9 +150,9 @@ string
 thread
 -
 
-/home/andrew/retropong/bin/Game.cpp
+/home/f85/adkatson/Downloads/pong/retropong/bin/Game.cpp
 Game.hpp
-/home/andrew/retropong/bin/Game.hpp
+/home/f85/adkatson/Downloads/pong/retropong/bin/Game.hpp
 iostream
 -
 

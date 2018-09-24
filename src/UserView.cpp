@@ -8,6 +8,9 @@ UserView::UserView(GameLogic *gameLogic){
   this -> windowX = gameLogic -> getWindowX();
   this -> windowY = gameLogic -> getWindowY();
   this -> loadFont();
+  this -> keyPress = unique_ptr<KeyPress>(new KeyPress());
+  this -> mousePress = unique_ptr<MousePress>(new MousePress());
+  this -> successFullTexture = (this -> ballTexture).loadFromFile("../image/ppeers2.png");
 }
 
 UserView::~UserView(){
@@ -72,15 +75,23 @@ void UserView::processEvents(sf::RenderWindow  &game, float deltaS){
       this -> gameLogic -> shutdownGame(game);
     //Key Pressed
     else if(Event.type == sf::Event::KeyPressed){
+      //cout << "time of key press " << deltaS << std::endl;
       this ->  keyPressed(Event, game, deltaS);
     }
     //mouse button Pressed
     else if(Event.type == sf::Event::MouseButtonPressed){
       this ->  mousePressed(Event, game);
     }
+    //if clicked another window on game window
+    else if(Event.type == sf::Event::LostFocus){
+      //only consider this when on the game window
+      if(!(this -> gameLogic -> isMainMenuOn()) && !(this -> gameLogic -> isOptionsMenuOn())
+        && !(this -> gameLogic -> isGameEnded())){
+          this -> gameLogic -> pauseGame();
+      }
+    }
   }
 }
-
 
 void UserView::drawMainMenuTitle(sf::RenderWindow &game){
     (this -> mainMenuText).setFont(this -> mainFont);
@@ -240,9 +251,7 @@ void UserView::drawCompPaddle(sf::RenderWindow &game) {
 }
 
 void UserView::drawBall(sf::RenderWindow &game){
-  sf::CircleShape circle;
-  sf::Texture texture;
-  sf::Sprite sprite;
+
 
   float xPos = (float) (this -> gameLogic -> getBallXPos());
   float yPos = (float) (this -> gameLogic -> getBallYPos());
@@ -250,25 +259,23 @@ void UserView::drawBall(sf::RenderWindow &game){
   float radius = (float) (this -> gameLogic -> getBallRadius());
   sf::Color ballColor = this -> gameLogic -> getBallColor();
 
-  circle.setPosition(sf::Vector2f(xPos, yPos));
-  circle.setRadius(radius);
-  circle.setFillColor(ballColor);
-  game.draw(circle);
+  (this -> ball).setPosition(sf::Vector2f(xPos, yPos));
+  (this -> ball).setRadius(radius);
+  (this -> ball).setFillColor(ballColor);
 
-  /*
   //try to load texture from file
-  if(!texture.loadFromFile("../image/ppeers1.png")){
-    circle.setFillColor(sf::Color::White);
-    game.draw(circle);
+  if(!(this -> gameLogic -> isKonamiCode()) || !(this -> successFullTexture)){
+    (this -> ball).setFillColor(sf::Color::White);
+    game.draw((this -> ball));
   }
   else{
-      sprite.setTexture(texture);
-      sprite.setPosition(sf::Vector2f(xPos, yPos));
-      sprite.setRotation(angle);
-      sprite.setScale(0.25f, 0.2f);
-      game.draw(sprite);
+    (this -> textureBall).setPosition(sf::Vector2f(xPos, yPos));
+    (this -> textureBall).setRadius(radius);
+    (this -> textureBall).setTextureRect(sf::IntRect(5,20,100,125));
+    (this -> textureBall).setTexture(&(this -> ballTexture));
+    game.draw((this -> textureBall));
   }
-  */
+
 }
 
 void UserView::drawText(sf::RenderWindow &game){
@@ -508,11 +515,9 @@ string UserView::getWinnerString(){
 }
 
 void UserView::keyPressed(sf::Event event, sf::RenderWindow &game,float deltaS){
-  auto keyPress = unique_ptr<KeyPress>(new KeyPress());
-  keyPress -> processInput(event, (this -> gameLogic), game, deltaS);
+  this -> keyPress -> processInput(event, (this -> gameLogic), game, deltaS);
 }
 
 void UserView::mousePressed(sf::Event event, sf::RenderWindow &game){
-  auto mousePress = unique_ptr<MousePress>(new MousePress());
-  mousePress -> processInput(event, (this -> gameLogic), game);
+  this -> mousePress -> processInput(event, (this -> gameLogic), game);
 }

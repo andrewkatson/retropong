@@ -1,6 +1,6 @@
 #include "Paddle.hpp"
 
-Paddle::Paddle(int xPos, int yPos, int xDim, int yDim, int speed){
+Paddle::Paddle(float xPos, float yPos, int xDim, int yDim, int speed){
   this -> xPos = xPos;
   this -> yPos = yPos;
   this -> xDim = xDim;
@@ -28,14 +28,14 @@ void Paddle::reset(int compOrUser){
     this -> yPos = (this -> windowY)/60 + 50;
     this -> xDim = (this -> windowX)/160;
     this -> yDim = (this -> windowX)/20;
-    this -> speed = 1000;
+    this -> speed = 10;
   }
   else{
     this -> xPos = (this -> windowX) - (this -> windowX)/160 - 50;
     this -> yPos = (this -> windowY)/60 + 50;
     this -> xDim = (this -> windowX)/160;
     this -> yDim = (this -> windowX)/20;
-    this -> speed = 1000;
+    this -> speed = 10;
   }
 }
 
@@ -53,7 +53,7 @@ void Paddle::movePaddle(Direction direction, float deltaS){
   };
 }
 
-void Paddle::updatePos(int newXPos, int newYPos){
+void Paddle::updatePos(float newXPos, float newYPos){
   //if the new position of the paddle would be off the screen you stop it
   //off screen here is considered as the edges of the border rectangles
   if(newYPos < windowY / 60 || newYPos + this -> yDim > windowY - windowY / 60){
@@ -93,11 +93,11 @@ void Paddle::scalePaddle(){
   this -> yDim = (this -> windowX)/20;
 }
 
-int Paddle::getXPos(){
+float Paddle::getXPos(){
   return this -> xPos;
 }
 
-int Paddle::getYPos(){
+float Paddle::getYPos(){
   return this -> yPos;
 }
 

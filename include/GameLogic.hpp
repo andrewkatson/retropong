@@ -39,6 +39,7 @@ public:
   bool isGameOver;
   bool isMainMenu;
   bool isOptionsMenu;
+  bool enteredKonamiCode;
 
 
   GameLogic(int windowX, int windowY, int winningScore);
@@ -51,7 +52,7 @@ public:
   void shutdownGame(sf::RenderWindow  &game);
 
   void updateWindowSize(int windowX, int windowY);
-  void updateLogic(int deltaS);
+  void updateLogic(float deltaS);
 
   void handleClickedDropDown(vector<int> clickDropDown);
 
@@ -71,6 +72,7 @@ public:
   void moveCompPaddleUp(float deltaS);
   void moveBall(float deltaS);
 
+  bool ballWithinBounds();
   bool isCollision();
   bool ballHitsGoal();
   bool ballHitsUserGoal();
@@ -83,17 +85,22 @@ public:
   bool ballHitsCompPaddle();
   void handleCollision();
   bool isScore();
+
   void handleScore();
   void handlePotentialWin(ScoreBoard::Side winner);
   void resetBall();
   void pauseGame();
   void unPauseGame();
   void unpauseBall();
+  void enableKonamiCode();
+  void disableKonamiCode();
   void moveBallPositionForward(float deltaS);
+
   bool isMainMenuOn();
   bool isOptionsMenuOn();
   bool isGamePaused();
   bool isGameEnded();
+  bool isKonamiCode();
 
   ScoreBoard::Side getWinningSide();
 
@@ -102,14 +109,14 @@ public:
 
   int getUserXDim();
   int getUserYDim();
-  int getUserXPos();
-  int getUserYPos();
+  float getUserXPos();
+  float getUserYPos();
   sf::Color getUserPaddleColor();
 
   int getCompXDim();
   int getCompYDim();
-  int getCompXPos();
-  int getCompYPos();
+  float getCompXPos();
+  float getCompYPos();
   sf::Color getCompPaddleColor();
 
   float getBallXPos();

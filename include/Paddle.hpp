@@ -1,10 +1,13 @@
 #ifndef PADDLE_H
 #define PADDLE_H
 #include <SFML/Graphics.hpp>
+#include <iostream>
+
+using std::cout;
 class Paddle{
 private:
-  int xPos;
-  int yPos;
+  float xPos;
+  float yPos;
   int xDim;
   int yDim;
   int speed;
@@ -20,13 +23,13 @@ private:
     easy, medium, hard
   };
 
-  Paddle(int xPos, int yPos, int xDim, int yDim, int speed);
+  Paddle(float xPos, float yPos, int xDim, int yDim, int speed);
 
   void reset(int compOrUser);
 
   void movePaddle(Direction direction, float deltaS);
 
-  void updatePos(int newXPos, int newYPos);
+  void updatePos(float newXPos, float newYPos);
 
   void changeSize(int newXDim, int newYDim);
 
@@ -40,9 +43,9 @@ private:
 
   void scalePaddle();
 
-  int getXPos();
+  float getXPos();
 
-  int getYPos();
+  float getYPos();
 
   int getXDim();
 

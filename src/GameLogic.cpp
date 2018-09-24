@@ -14,8 +14,9 @@ void GameLogic::init(int windowX, int windowY, int winningScore){
   this -> isGameOver = false;
   this -> isMainMenu = true;
   this -> isOptionsMenu = false;
-  this -> userPaddle = unique_ptr<Paddle>(new Paddle(windowX/160 + 50,windowY/60 + 50,windowX/160,windowX/20,10000));
-  this -> compPaddle = unique_ptr<Paddle>(new Paddle(windowX - windowX/160 - 50,windowY/60 + 50, windowX/160,windowX/20,10000));
+  this -> enteredKonamiCode = false;
+  this -> userPaddle = unique_ptr<Paddle>(new Paddle(windowX/160 + 50,windowY/60 + 50,windowX/160,windowX/20,1));
+  this -> compPaddle = unique_ptr<Paddle>(new Paddle(windowX - windowX/160 - 50,windowY/60 + 50, windowX/160,windowX/20,1));
   this -> ball = unique_ptr<Ball>(new Ball((float)(windowX / 2), (float)(windowY / 2),
                                   180, windowX/80, 10));
   this -> scoreBoard =  unique_ptr<ScoreBoard>(new ScoreBoard(winningScore));
@@ -36,6 +37,8 @@ void GameLogic::init(int windowX, int windowY, int winningScore){
   this -> optionMenu = unique_ptr<OptionMenu>(new OptionMenu(windowX, windowY));
 
   this -> updateWindowSize(windowX, windowY);
+  //make sure the game is restarted
+  this -> restartGame();
 }
 
 //start a game from the main menu
@@ -56,6 +59,7 @@ void GameLogic::restartGame(){
   this -> isGameOver = false;
   this -> isMainMenu = true;
   this -> isOptionsMenu = false;
+  this -> enteredKonamiCode = false;
   int user = 0;
   int comp = 1;
   //reset to original values and positions
@@ -93,9 +97,16 @@ void GameLogic::updateWindowSize(int windowX, int windowY){
 }
 
 
-void GameLogic::updateLogic(int deltaS){
+void GameLogic::updateLogic(float deltaS){
   if(this -> isPaused){
     this -> pauseGame();
+  }
+  //check if the ball is outside the non goal side boundaries
+  //and if it is we pause the game and reset the ball
+  else if(this -> ballWithinBounds()){
+    cout << "Game paused " << std::endl;
+    this -> pauseGame();
+    this -> resetBall();
   }
   else{
     this -> unPauseGame();
@@ -295,6 +306,21 @@ void GameLogic::moveBall(float deltaS){
   }
 }
 
+//return true if the ball has disappeared over the Side
+//boundaries
+bool GameLogic::ballWithinBounds(){
+  float ballX = this -> getBallXPos();
+  float ballY = this -> getBallYPos();
+
+  if(ballX >= 0 && ballX <= this -> windowX && ballY < 0){
+    return true;
+  }
+  else if(ballX >= 0 && ballX <= this -> windowX && ballY > this -> windowY){
+    return true;
+  }
+  return false;
+}
+
 //check if there is any sort of normal collision (so non scoring)
 bool GameLogic::isCollision(){
   float ballX = this ->  getBallXPos();
@@ -384,7 +410,6 @@ bool GameLogic::ballHitsBottomSide(){
   }
   return false;
 
-
 }
 
 //check if the ball hit either paddle
@@ -454,6 +479,13 @@ bool GameLogic::isScore(){
   if(this -> ballHitsGoal()){
     return true;
   }
+  //in case the ball skips over the boundary
+  else if(ballX < 0 && ballY <= 0 && ballY <= this -> windowY){
+    return true;
+  }
+  else if(ballX > this -> windowX && ballY <= 0 && ballY <= this -> windowY){
+    return true;
+  }
   return false;
 }
 
@@ -465,6 +497,13 @@ void GameLogic::handleScore(){
   int ballRadius = this -> getBallRadius();
   if(this -> ballHitsUserGoal()){
     this -> scoreBoard -> incrementCompScore();
+  }
+  //check if the ball is outside the boundary
+  else if(ballX < 0 && ballY <= 0 && ballY <= this -> windowY){
+    this -> scoreBoard -> incrementCompScore();
+  }
+  else if(ballX > this -> windowX && ballY <= 0 && ballY <= this -> windowY){
+    this -> scoreBoard -> incrementUserScore();
   }
   else{
     this -> scoreBoard -> incrementUserScore();
@@ -521,6 +560,14 @@ void GameLogic::unpauseBall(){
   }
 }
 
+void GameLogic::enableKonamiCode(){
+  this -> enteredKonamiCode = true;
+}
+
+void GameLogic::disableKonamiCode(){
+  this -> enteredKonamiCode = false;
+}
+
 void GameLogic::moveBallPositionForward(float deltaS){
   this -> ball -> moveForward(deltaS);
 }
@@ -540,6 +587,10 @@ bool GameLogic::isGamePaused(){
 
 bool GameLogic::isGameEnded(){
   return this -> isGameOver;
+}
+
+bool GameLogic::isKonamiCode(){
+  return this -> enteredKonamiCode;
 }
 
 ScoreBoard::Side GameLogic::getWinningSide(){
@@ -562,11 +613,11 @@ int GameLogic::getUserYDim(){
   return this -> userPaddle -> getYDim();
 }
 
-int GameLogic::getUserXPos(){
+float GameLogic::getUserXPos(){
   return this -> userPaddle -> getXPos();
 }
 
-int GameLogic::getUserYPos(){
+float GameLogic::getUserYPos(){
   return this -> userPaddle -> getYPos();
 }
 sf::Color GameLogic::getUserPaddleColor(){
@@ -583,11 +634,11 @@ int GameLogic::getCompYDim(){
   return this -> compPaddle -> getYDim();
 }
 
-int GameLogic::getCompXPos(){
+float GameLogic::getCompXPos(){
   return this -> compPaddle -> getXPos();
 }
 
-int GameLogic::getCompYPos(){
+float GameLogic::getCompYPos(){
   return this -> compPaddle -> getYPos();
 }
 sf::Color GameLogic::getCompPaddleColor(){

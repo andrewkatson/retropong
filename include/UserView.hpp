@@ -22,6 +22,8 @@ private:
   GameLogic *gameLogic;
   int windowX;
   int windowY;
+  unique_ptr<KeyPress> keyPress;
+  unique_ptr<MousePress> mousePress;
   sf::Font mainFont;
   sf::Text userScoreText;
   sf::Text compScoreText;
@@ -31,6 +33,11 @@ private:
   sf::Text playGameText;
   sf::Text optionsMenuSelectText;
   sf::Text quitGameText;
+  sf::CircleShape ball;
+  sf::CircleShape textureBall;
+  sf::Texture ballTexture;
+
+  bool successFullTexture;
 
 public:
     UserView(GameLogic *gameLogic);

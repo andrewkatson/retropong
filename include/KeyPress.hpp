@@ -7,11 +7,15 @@
 
 
 class KeyPress{
-
+private:
+  int currentKonamiKeyPress;
+  int lastKonamiKeyPress;
   public:
     KeyPress();
     void processInput(sf::Event event, GameLogic *gameLogic,
                       sf::RenderWindow &game, float deltaS);
+
+    bool checkKonamiCode(sf::Event event, GameLogic *gameLogic);
 };
 
 #endif

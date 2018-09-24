@@ -11,7 +11,7 @@ using std::shared_ptr;
 class CompView{
 private:
   GameLogic *gameLogic;
-
+  int ticks;
 
 
 public:
@@ -19,10 +19,11 @@ public:
   CompView(GameLogic *gameLogic);
   ~CompView();
 
-  void updateCompView(int deltaS);
-  void followBall(int deltaS);
-  bool canMove(int deltaS);
-  float calcBallXPosThresholdForMove(int deltaS);
+  void updateCompView(float deltaS);
+  void followBall(float deltaS);
+  bool canMove(float deltaS);
+  float calcBallXPosThresholdForMove(float deltaS);
+  int calcMaxTicksBeforeMove(float deltaS);
 
 private:
   Paddle::Difficulty difficulty;

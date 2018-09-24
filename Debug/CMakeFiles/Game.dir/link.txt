@@ -1,1 +1,1 @@
-/usr/bin/c++   -std=c++11 -g  -rdynamic CMakeFiles/Game.dir/bin/Game.cpp.o  -o Game -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lsfml-network libretropong_core.a -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lsfml-network 
+/usr/bin/c++    -std=c++11 -g   CMakeFiles/Game.dir/bin/Game.cpp.o  -o Game -rdynamic -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lsfml-network libretropong_core.a -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lsfml-network 

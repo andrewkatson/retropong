@@ -19,6 +19,7 @@ private:
   int resetSpeed;
   int windowX;
   int windowY;
+  int ticks;
   sf::CircleShape ballCircle;
 
 public:
@@ -46,6 +47,9 @@ public:
   void setColor(sf::Color color);
 
   void scaleBall();
+
+  bool ballCanMove(float deltaS);
+  float calcMaxTicksBeforeMove(float deltaS);
 
   sf::FloatRect getGlobalBounds();
 };

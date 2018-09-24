@@ -17,7 +17,8 @@ int main(){
   while(game.isOpen())
   {
     sf::Time timeDelta = gameClock.restart();
-    float deltaS = timeDelta.asSeconds();
+    float deltaS = timeDelta.asSeconds() * 3000;
+    cout << "time " << deltaS << std::endl;
     pongGame -> updateGame(deltaS, game);
 
   }
@@ -53,10 +54,10 @@ void Game::initGame(sf::RenderWindow  &game){
 }
 
 
-void Game::updateGame(int deltaS, sf::RenderWindow  &game){
+void Game::updateGame(float deltaS, sf::RenderWindow  &game){
 
   this -> gameLogic -> updateLogic(deltaS);
-  this -> userView -> updateUserView(deltaS, game);
+  this -> userView -> updateUserView(game, deltaS);
   this -> compView -> updateCompView(deltaS);
 
 }

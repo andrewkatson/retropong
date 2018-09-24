@@ -16,6 +16,8 @@ public:
   bool clickedPlayButton(sf::Event event, GameLogic *gameLogic);
   bool clickedOptionsButton(sf::Event event, GameLogic *gameLogic);
   bool clickedQuitButton(sf::Event event, GameLogic *gameLogic);
+  bool clickedBackButton(sf::Event event, GameLogic *gameLogic);
+
 
   bool mouseClickOnButton(int mousePressX, int mousePressY, int boundXDim,
                           int boundYDim, sf::FloatRect &SboundingBox);

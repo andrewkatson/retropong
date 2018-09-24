@@ -4,6 +4,7 @@
 CMakeFiles/Game.dir/bin/Game.cpp.o
  ../include/Ball.hpp
  ../include/Border.hpp
+ ../include/Button.hpp
  ../include/CompView.hpp
  ../include/DropDown.hpp
  ../include/Game.hpp

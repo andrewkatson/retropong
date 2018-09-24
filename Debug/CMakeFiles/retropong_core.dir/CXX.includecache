@@ -18,6 +18,14 @@ SFML/Graphics.hpp
 SFML/Graphics.hpp
 -
 
+../include/Button.hpp
+SFML/Graphics.hpp
+../include/SFML/Graphics.hpp
+string
+-
+iostream
+-
+
 ../include/CompView.hpp
 SFML/Window.hpp
 -
@@ -89,6 +97,8 @@ vector
 ../include/OptionMenu.hpp
 DropDown.hpp
 ../include/DropDown.hpp
+Button.hpp
+../include/Button.hpp
 memory
 -
 
@@ -127,6 +137,10 @@ Ball.hpp
 /home/andrew/retropong/src/Border.cpp
 Border.hpp
 /home/andrew/retropong/src/Border.hpp
+
+/home/andrew/retropong/src/Button.cpp
+Button.hpp
+/home/andrew/retropong/src/Button.hpp
 
 /home/andrew/retropong/src/CompView.cpp
 CompView.hpp

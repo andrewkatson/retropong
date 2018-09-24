@@ -2,6 +2,7 @@
 #define OPTIONMENU_H
 
 #include "DropDown.hpp"
+#include "Button.hpp"
 #include <memory>
 
 using std::unique_ptr;
@@ -19,10 +20,9 @@ private:
   unique_ptr<DropDown> selectGameObject;
   unique_ptr<DropDown> selectColor;
   unique_ptr<DropDown> selectDifficulty;
+  unique_ptr<Button> backButton;
   int windowX;
   int windowY;
-
-
 public:
 
   OptionMenu(int windowX, int windowY);
@@ -32,12 +32,11 @@ public:
   DropDown * getSelectObjectDropDown();
   DropDown * getSelectColorDropDown();
   DropDown * getSelectDifficultyDropDown();
+  Button * getBackButton();
 
   int getGameObjectSelected();
   int getSelectedDifficulty();
   int getColorIndexOfColor(sf::Color color);
-
-
 
 };
 

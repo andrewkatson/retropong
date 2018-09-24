@@ -24,7 +24,7 @@ private:
 
   void reset(int compOrUser);
 
-  void movePaddle(Direction direction);
+  void movePaddle(Direction direction, float deltaS);
 
   void updatePos(int newXPos, int newYPos);
 

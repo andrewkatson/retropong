@@ -3,6 +3,7 @@
 
 CMakeFiles/Game.dir/bin/Game.cpp.o: ../include/Ball.hpp
 CMakeFiles/Game.dir/bin/Game.cpp.o: ../include/Border.hpp
+CMakeFiles/Game.dir/bin/Game.cpp.o: ../include/Button.hpp
 CMakeFiles/Game.dir/bin/Game.cpp.o: ../include/CompView.hpp
 CMakeFiles/Game.dir/bin/Game.cpp.o: ../include/DropDown.hpp
 CMakeFiles/Game.dir/bin/Game.cpp.o: ../include/Game.hpp

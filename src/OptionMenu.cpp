@@ -5,6 +5,8 @@ OptionMenu::OptionMenu(int windowX, int windowY){
   this -> selectGameObject = unique_ptr<DropDown>(new DropDown(7, &this -> gameObjectNames, windowX, windowY, 0));
   this -> selectColor = unique_ptr<DropDown>(new DropDown(7, &this -> colorNames, windowX, windowY, 1));
   this -> selectDifficulty = unique_ptr<DropDown>(new DropDown(3, &this -> difficultyNames, windowX, windowY, 2));
+  string backStr = "Back";
+  this -> backButton = unique_ptr<Button>(new Button(windowX, windowY, backStr));
   this -> setWindowSize(windowX, windowY);
 
 }
@@ -15,6 +17,7 @@ void OptionMenu::setWindowSize(int windowX, int windowY){
   this -> selectGameObject -> setWindowSize(windowX, windowY);
   this -> selectColor -> setWindowSize(windowX, windowY);
   this -> selectDifficulty -> setWindowSize(windowX, windowY);
+  this -> backButton -> setWindowSize(windowX, windowY);
 }
 
 DropDown * OptionMenu::getSelectObjectDropDown(){
@@ -25,6 +28,9 @@ DropDown * OptionMenu::getSelectColorDropDown(){
 }
 DropDown * OptionMenu::getSelectDifficultyDropDown(){
   return (this -> selectDifficulty).get();
+}
+Button * OptionMenu::getBackButton(){
+  return (this -> backButton).get();
 }
 
 int OptionMenu::getGameObjectSelected(){

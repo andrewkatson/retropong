@@ -18,6 +18,14 @@ SFML/Graphics.hpp
 SFML/Graphics.hpp
 -
 
+../include/Button.hpp
+SFML/Graphics.hpp
+../include/SFML/Graphics.hpp
+string
+-
+iostream
+-
+
 ../include/CompView.hpp
 SFML/Window.hpp
 -
@@ -107,6 +115,8 @@ vector
 ../include/OptionMenu.hpp
 DropDown.hpp
 ../include/DropDown.hpp
+Button.hpp
+../include/Button.hpp
 memory
 -
 

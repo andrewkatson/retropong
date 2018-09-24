@@ -37,8 +37,8 @@ public:
     ~UserView();
     void loadFont();
 
-    void updateUserView(int deltaS, sf::RenderWindow &game);
-    void processEvents(sf::RenderWindow &game);
+    void updateUserView(sf::RenderWindow &game, float deltaS);
+    void processEvents(sf::RenderWindow &game, float deltaS);
 
     void drawMainMenuTitle(sf::RenderWindow &game);
     void drawSelectPlayMessageText(sf::RenderWindow &game);
@@ -48,6 +48,7 @@ public:
     void drawSelectObjectList(sf::RenderWindow &game);
     void drawSelectColorList(sf::RenderWindow &game);
     void drawSelectDifficultyList(sf::RenderWindow &game);
+    void drawBackButton(sf::RenderWindow &game);
 
     void drawUserPaddle(sf::RenderWindow &game);
     void drawCompPaddle(sf::RenderWindow &game);
@@ -71,7 +72,7 @@ public:
 
     string getWinnerString();
 
-    void keyPressed(sf::Event event, sf::RenderWindow &game);
+    void keyPressed(sf::Event event, sf::RenderWindow &game, float deltaS);
     void mousePressed(sf::Event event, sf::RenderWindow &game);
 };
 

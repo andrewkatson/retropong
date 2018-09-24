@@ -22,7 +22,7 @@ public:
   Game();
 
   void initGame(sf::RenderWindow &game);
-  void updateGame(int deltaS, sf::RenderWindow  &game);
+  void updateGame(float deltaS, sf::RenderWindow  &game);
 
 
 };

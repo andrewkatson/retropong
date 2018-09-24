@@ -30,6 +30,10 @@ void MousePress::processInput(sf::Event event, GameLogic *gameLogic, sf::RenderW
     if(checkClickedDropDown[0] != -1 && checkClickedDropDown[1] != -1){
       gameLogic -> handleClickedDropDown(checkClickedDropDown);
     }
+
+    if(this -> clickedBackButton(event, gameLogic)){
+      gameLogic -> switchToMainMenu();
+    }
   }
 }
 
@@ -74,6 +78,18 @@ bool MousePress::clickedQuitButton(sf::Event event, GameLogic *gameLogic){
 
   if(this -> mouseClickOnButton(mousePressX, mousePressY, boundXDim, boundYDim,
      quitButtonBoundingBox)){
+    return true;
+  }
+  return false;
+}
+
+bool MousePress::clickedBackButton(sf::Event event, GameLogic *gameLogic){
+  int mousePressX = event.mouseButton.x;
+  int mousePressY = event.mouseButton.y;
+
+  Button *backButton = gameLogic -> getOptionMenuBackButton();
+
+  if(backButton -> isSelected(mousePressX, mousePressY)){
     return true;
   }
   return false;

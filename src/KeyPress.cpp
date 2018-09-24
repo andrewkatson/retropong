@@ -5,17 +5,20 @@ using std::cout;
 
 KeyPress::KeyPress(){}
 
-void KeyPress::processInput(sf::Event event, GameLogic *gameLogic, sf::RenderWindow &game){
+void KeyPress::processInput(sf::Event event, GameLogic *gameLogic,
+                            sf::RenderWindow &game, float deltaS){
 
   if(event.key.code == sf::Keyboard::S){
-    gameLogic -> moveUserPaddleDown();
+    gameLogic -> moveUserPaddleDown(deltaS);
   }
   else if(event.key.code == sf::Keyboard::W){
-    gameLogic -> moveUserPaddleUp();
+    gameLogic -> moveUserPaddleUp(deltaS);
   }
   else if(event.key.code == sf::Keyboard::Space){
-    gameLogic -> unpauseBall();
-    gameLogic -> unPauseGame();
+    if(!(gameLogic -> isGameEnded())){
+      gameLogic -> unpauseBall();
+      gameLogic -> unPauseGame();
+    }
   }
   else if(event.key.code == sf::Keyboard::R){
     if(gameLogic -> isGameEnded()){
@@ -23,6 +26,8 @@ void KeyPress::processInput(sf::Event event, GameLogic *gameLogic, sf::RenderWin
     }
   }
   else if(event.key.code == sf::Keyboard::Q){
-    game.close();
+    if(gameLogic -> isGameEnded()){
+      game.close();
+    }
   }
 }

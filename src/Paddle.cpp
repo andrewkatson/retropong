@@ -28,25 +28,25 @@ void Paddle::reset(int compOrUser){
     this -> yPos = (this -> windowY)/60 + 50;
     this -> xDim = (this -> windowX)/160;
     this -> yDim = (this -> windowX)/20;
-    this -> speed = 10;
+    this -> speed = 1000;
   }
   else{
     this -> xPos = (this -> windowX) - (this -> windowX)/160 - 50;
     this -> yPos = (this -> windowY)/60 + 50;
     this -> xDim = (this -> windowX)/160;
     this -> yDim = (this -> windowX)/20;
-    this -> speed = 10;
+    this -> speed = 1000;
   }
 }
 
-void Paddle::movePaddle(Direction direction){
+void Paddle::movePaddle(Direction direction, float deltaS){
 
   switch(direction){
     case up:
-      this -> updatePos(this -> xPos, this -> yPos - this -> speed);
+      this -> updatePos(this -> xPos, this -> yPos - (this -> speed * deltaS));
       break;
     case down:
-      this -> updatePos(this -> xPos, this -> yPos + this -> speed);
+      this -> updatePos(this -> xPos, this -> yPos + (this -> speed * deltaS));
       break;
     default:
       break;

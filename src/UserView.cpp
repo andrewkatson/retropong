@@ -21,10 +21,10 @@ void UserView::loadFont(){
   }
 }
 
-void UserView::updateUserView(int deltaS, sf::RenderWindow &game){
+void UserView::updateUserView(sf::RenderWindow &game, float deltaS){
   game.clear();
 
-  this -> processEvents(game);
+  this -> processEvents(game, deltaS);
 
   if(this -> gameLogic -> isMainMenuOn()){
     this -> drawMainMenuTitle(game);
@@ -43,6 +43,8 @@ void UserView::updateUserView(int deltaS, sf::RenderWindow &game){
       this -> drawSelectDifficultyList(game);
     }
 
+    this -> drawBackButton(game);
+
   }
   else if(!(this -> gameLogic -> isGameEnded())){
     this -> drawUserPaddle(game);
@@ -60,7 +62,7 @@ void UserView::updateUserView(int deltaS, sf::RenderWindow &game){
 
 }
 
-void UserView::processEvents(sf::RenderWindow  &game){
+void UserView::processEvents(sf::RenderWindow  &game, float deltaS){
   // process events
   sf::Event Event;
   while(game.pollEvent(Event))
@@ -70,7 +72,7 @@ void UserView::processEvents(sf::RenderWindow  &game){
       this -> gameLogic -> shutdownGame(game);
     //Key Pressed
     else if(Event.type == sf::Event::KeyPressed){
-      this ->  keyPressed(Event, game);
+      this ->  keyPressed(Event, game, deltaS);
     }
     //mouse button Pressed
     else if(Event.type == sf::Event::MouseButtonPressed){
@@ -191,6 +193,17 @@ void UserView::drawSelectDifficultyList(sf::RenderWindow &game){
   else{
       this -> drawDropDownSingleOption(*selectDifficulty, game);
   }
+}
+
+void UserView::drawBackButton(sf::RenderWindow &game){
+  Button *backButton = (this -> gameLogic -> getOptionMenuBackButton());
+  sf::Text text = backButton -> getButtonText();
+  sf::RectangleShape rect = backButton -> getButtonRect();
+
+  text.setFont(this -> mainFont);
+
+  game.draw(text);
+  game.draw(rect);
 }
 
 void UserView::drawUserPaddle(sf::RenderWindow &game){
@@ -494,9 +507,9 @@ string UserView::getWinnerString(){
   }
 }
 
-void UserView::keyPressed(sf::Event event, sf::RenderWindow &game){
+void UserView::keyPressed(sf::Event event, sf::RenderWindow &game,float deltaS){
   auto keyPress = unique_ptr<KeyPress>(new KeyPress());
-  keyPress -> processInput(event, (this -> gameLogic), game);
+  keyPress -> processInput(event, (this -> gameLogic), game, deltaS);
 }
 
 void UserView::mousePressed(sf::Event event, sf::RenderWindow &game){

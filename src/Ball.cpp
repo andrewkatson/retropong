@@ -1,15 +1,14 @@
 #include "Ball.hpp"
 
 
-Ball::Ball(float xPos, float yPos, int angle, int radius, int speed){
+Ball::Ball(float xPos, float yPos, int angle, int radius, float speed){
   this -> xPos = xPos;
   this -> yPos = yPos;
+  cout << xPos << std::endl;
   this -> angle = angle;
   this -> radius = radius;
   this -> speed = speed;
   this -> resetSpeed = speed;
-  this -> ticks = 0;
-  this -> maxTicksBeforeMove = speed * 100;
 
   sf::CircleShape circle;
 
@@ -25,12 +24,12 @@ void Ball::reset(){
   this -> yPos = (float)(this -> windowY / 2);
   this -> angle = 180;
   this -> radius =  (this -> windowX)/80;
-  this -> speed = (this -> windowY)/160;
+  this -> speed = 10;
 }
 
-void Ball::moveForward(){
-  float changeInX = this -> calcXPosChange();
-  float changeInY = this -> calcYPosChange();
+void Ball::moveForward(float deltaS){
+  float changeInX = this -> calcXPosChange(deltaS);
+  float changeInY = this -> calcYPosChange(deltaS);
   float xPos = this -> getXPos();
   float yPos = this -> getYPos();
 
@@ -40,33 +39,22 @@ void Ball::moveForward(){
   this -> updatePos(xPos + changeInX, yPos + changeInY);
 }
 
-float Ball::calcXPosChange(){
+float Ball::calcXPosChange(float deltaS){
   float speed = (float) this -> getSpeed();
   float angle = (float) this -> getAngle();
 
-  return speed * cos((angle * PI)/180);
+  return (deltaS * speed * cos((angle * PI)/180.0));
 }
 
-float Ball::calcYPosChange(){
+float Ball::calcYPosChange(float deltaS){
   float speed = (float) this -> getSpeed();
   float angle = (float) this -> getAngle();
-  return (speed * sin((angle * PI)/180));
+  return (deltaS * speed * sin((angle * PI)/180.0));
 }
 
 void Ball::updatePos(float xPos, float yPos){
   this -> xPos = xPos;
   this -> yPos = yPos;
-}
-
-bool Ball::canMove(){
-  if(this -> ticks > this -> maxTicksBeforeMove){
-    this -> ticks = 0;
-    return true;
-  }
-  else{
-    this -> ticks  = this -> ticks + 1;
-    return false;
-  }
 }
 
 float Ball::getXPos(){
@@ -85,10 +73,10 @@ int Ball::getRadius(){
   return this -> radius;
 }
 
-int Ball::getSpeed(){
+float Ball::getSpeed(){
   return this -> speed;
 }
-int Ball::getBallResetSpeed(){
+float Ball::getBallResetSpeed(){
   return this -> resetSpeed;
 }
 sf::Color Ball::getColor(){
@@ -106,7 +94,7 @@ void Ball::setAngle(int angle){
   this -> angle = angle;
 }
 
-void Ball::setSpeed(int speed){
+void Ball::setSpeed(float speed){
   this -> speed = speed;
 }
 void Ball::setWindowSize(int windowX, int windowY){

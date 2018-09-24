@@ -217,6 +217,33 @@ src/Border.cpp.s:
 	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/Border.cpp.s
 .PHONY : src/Border.cpp.s
 
+src/Button.o: src/Button.cpp.o
+
+.PHONY : src/Button.o
+
+# target to build an object file
+src/Button.cpp.o:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/Button.cpp.o
+.PHONY : src/Button.cpp.o
+
+src/Button.i: src/Button.cpp.i
+
+.PHONY : src/Button.i
+
+# target to preprocess a source file
+src/Button.cpp.i:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/Button.cpp.i
+.PHONY : src/Button.cpp.i
+
+src/Button.s: src/Button.cpp.s
+
+.PHONY : src/Button.s
+
+# target to generate assembly for a file
+src/Button.cpp.s:
+	$(MAKE) -f CMakeFiles/retropong_core.dir/build.make CMakeFiles/retropong_core.dir/src/Button.cpp.s
+.PHONY : src/Button.cpp.s
+
 src/CompView.o: src/CompView.cpp.o
 
 .PHONY : src/CompView.o
@@ -506,6 +533,9 @@ help:
 	@echo "... src/Border.o"
 	@echo "... src/Border.i"
 	@echo "... src/Border.s"
+	@echo "... src/Button.o"
+	@echo "... src/Button.i"
+	@echo "... src/Button.s"
 	@echo "... src/CompView.o"
 	@echo "... src/CompView.i"
 	@echo "... src/CompView.s"

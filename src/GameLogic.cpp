@@ -14,10 +14,10 @@ void GameLogic::init(int windowX, int windowY, int winningScore){
   this -> isGameOver = false;
   this -> isMainMenu = true;
   this -> isOptionsMenu = false;
-  this -> userPaddle = unique_ptr<Paddle>(new Paddle(windowX/160 + 50,windowY/60 + 50,windowX/160,windowX/20,10));
-  this -> compPaddle = unique_ptr<Paddle>(new Paddle(windowX - windowX/160 - 50,windowY/60 + 50, windowX/160,windowX/20,10));
+  this -> userPaddle = unique_ptr<Paddle>(new Paddle(windowX/160 + 50,windowY/60 + 50,windowX/160,windowX/20,10000));
+  this -> compPaddle = unique_ptr<Paddle>(new Paddle(windowX - windowX/160 - 50,windowY/60 + 50, windowX/160,windowX/20,10000));
   this -> ball = unique_ptr<Ball>(new Ball((float)(windowX / 2), (float)(windowY / 2),
-                                  180, windowX/80, windowY/160));
+                                  180, windowX/80, 10));
   this -> scoreBoard =  unique_ptr<ScoreBoard>(new ScoreBoard(winningScore));
   this -> topBorder = unique_ptr<Border>(new Border(0,0,windowX, windowY / 60,
                                           Border::top, sf::Color::Red));
@@ -65,6 +65,14 @@ void GameLogic::restartGame(){
   this -> scoreBoard -> reset();
 }
 
+//game goes to main menu
+void GameLogic::switchToMainMenu(){
+  this -> isPaused = true;
+  this -> isGameOver = false;
+  this -> isMainMenu = true;
+  this -> isOptionsMenu = false;
+}
+
 void GameLogic::shutdownGame(sf::RenderWindow  &game){
   game.close();
 }
@@ -86,13 +94,13 @@ void GameLogic::updateWindowSize(int windowX, int windowY){
 
 
 void GameLogic::updateLogic(int deltaS){
-  this -> moveBall();
   if(this -> isPaused){
     this -> pauseGame();
   }
   else{
     this -> unPauseGame();
   }
+  this -> moveBall(deltaS);
 }
 
 //switch to a handler for the appropriate drop down selected
@@ -254,42 +262,36 @@ sf::Color GameLogic::getColorOfObject(string objectName){
 }
 
 //Move user paddle
-void GameLogic::moveUserPaddleDown(){
-  this -> userPaddle -> movePaddle(Paddle::down);
+void GameLogic::moveUserPaddleDown(float deltaS){
+  this -> userPaddle -> movePaddle(Paddle::down, deltaS);
 }
-void GameLogic::moveUserPaddleUp(){
-  this -> userPaddle -> movePaddle(Paddle::up);
+void GameLogic::moveUserPaddleUp(float deltaS){
+  this -> userPaddle -> movePaddle(Paddle::up, deltaS);
 }
 
 //Move the computer paddle
-void GameLogic::moveCompPaddleDown(){
-  this -> compPaddle -> movePaddle(Paddle::down);
+void GameLogic::moveCompPaddleDown(float deltaS){
+  this -> compPaddle -> movePaddle(Paddle::down, deltaS);
 }
-void GameLogic::moveCompPaddleUp(){
-  this -> compPaddle -> movePaddle(Paddle::up);
+void GameLogic::moveCompPaddleUp(float deltaS){
+  this -> compPaddle -> movePaddle(Paddle::up, deltaS);
 }
 
 //Move the game ball and determine if there is a collision or a score if it cannot
-void GameLogic::moveBall(){
-
-
+void GameLogic::moveBall(float deltaS){
   if(this -> isCollision()){
     this -> handleCollision();
 
     //keep moving ball away until there is no collision
     while(this -> isCollision()){
-      if(this -> ballCanMove()){
-        this -> moveBallPositionForward();
-      }
+      this -> moveBallPositionForward(deltaS);
     }
   }
   else if(this -> isScore()){
     this -> handleScore();
   }
   else{
-    if(this -> ballCanMove()){
-      this -> moveBallPositionForward();
-    }
+    this -> moveBallPositionForward(deltaS);
   }
 }
 
@@ -432,7 +434,8 @@ void GameLogic::handleCollision(){
   int newAngle = 0;
   //if the collision occured on the top or bottom the angle needs to be negated
   if(this -> ballHitsNonGoalSides()){
-    newAngle = (-1) * (180 - ballAngle) + randomAngleVariation;
+    //if we hit the tops the angle has more variation so it stays in play
+    newAngle = (-1) * (180 - ballAngle) + randomAngleVariation * 3;
   }
   else{
     newAngle = (180 - ballAngle) + randomAngleVariation;
@@ -518,13 +521,10 @@ void GameLogic::unpauseBall(){
   }
 }
 
-void GameLogic::moveBallPositionForward(){
-  this -> ball -> moveForward();
+void GameLogic::moveBallPositionForward(float deltaS){
+  this -> ball -> moveForward(deltaS);
 }
 
-bool GameLogic::ballCanMove(){
-  this -> ball -> canMove();
-}
 
 bool GameLogic::isMainMenuOn(){
   return this -> isMainMenu;
@@ -733,11 +733,18 @@ DropDown * GameLogic::getOptionMenuDifficultySelect(){
   return this -> optionMenu -> getSelectDifficultyDropDown();
 }
 
+Button * GameLogic::getOptionMenuBackButton(){
+  return this -> optionMenu -> getBackButton();
+}
+
 int GameLogic::getGameObjectSelected(){
   return this -> optionMenu -> getGameObjectSelected();
 }
 int GameLogic::getGameDifficultySelected(){
   return this -> optionMenu -> getSelectedDifficulty();
+}
+Paddle::Difficulty GameLogic::getDifficulty(){
+  return this -> compPaddle -> getDifficulty();
 }
 
 //Change ball data

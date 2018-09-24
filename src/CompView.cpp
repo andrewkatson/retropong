@@ -3,7 +3,7 @@
 CompView::CompView(GameLogic *gameLogic){
   this -> gameLogic = gameLogic;
   this -> difficulty = Paddle::easy;
-  this -> ticksSinceLastMove = 0;
+
 }
 
 CompView::~CompView(){
@@ -12,6 +12,7 @@ CompView::~CompView(){
 
 void CompView::updateCompView(int deltaS){
   this -> followBall(deltaS);
+  this -> difficulty = this -> gameLogic -> getDifficulty();
 }
 
 void CompView::followBall(int deltaS){
@@ -23,40 +24,25 @@ void CompView::followBall(int deltaS){
 
   if(this -> canMove(deltaS)){
     if (ballY > compY){
-      this -> gameLogic -> moveCompPaddleDown();
+      this -> gameLogic -> moveCompPaddleDown(deltaS);
     }
     else if(ballY < compY){
-      this -> gameLogic -> moveCompPaddleUp();
+      this -> gameLogic -> moveCompPaddleUp(deltaS);
     }
   }
 }
 
 bool CompView::canMove(int deltaS){
-  int maxTicksBeforeMove = this -> calcMaxTicksBeforeMove(deltaS);
   float ballXPosThresholdForMove = this -> calcBallXPosThresholdForMove(deltaS);
 
   int ballXPos = this -> gameLogic -> getBallXPos();
 
-  if(this -> ticksSinceLastMove > maxTicksBeforeMove && ballXPos >= ballXPosThresholdForMove){
-    this -> ticksSinceLastMove = 0;
+  if(ballXPos >= ballXPosThresholdForMove){
     return true;
   }
-
-  this -> ticksSinceLastMove++;
   return false;
 }
 
-int CompView::calcMaxTicksBeforeMove(int deltaS){
-  switch(this -> difficulty){
-    case Paddle::hard:
-      return 750;
-    case Paddle::medium:
-      return 1000;
-    case Paddle::easy:
-    default:
-      return 2000;
-  }
-}
 float CompView::calcBallXPosThresholdForMove(int deltaS){
   int windowX  = this -> gameLogic -> getWindowX();
 

@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/retropong_core.dir/src/Ball.cpp.o"
   "CMakeFiles/retropong_core.dir/src/Border.cpp.o"
+  "CMakeFiles/retropong_core.dir/src/Button.cpp.o"
   "CMakeFiles/retropong_core.dir/src/CompView.cpp.o"
   "CMakeFiles/retropong_core.dir/src/DropDown.cpp.o"
   "CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o"

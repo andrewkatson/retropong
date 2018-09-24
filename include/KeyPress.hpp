@@ -10,7 +10,8 @@ class KeyPress{
 
   public:
     KeyPress();
-    void processInput(sf::Event event, GameLogic *gameLogic, sf::RenderWindow &game);
+    void processInput(sf::Event event, GameLogic *gameLogic,
+                      sf::RenderWindow &game, float deltaS);
 };
 
 #endif

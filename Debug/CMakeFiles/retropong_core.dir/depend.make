@@ -7,8 +7,12 @@ CMakeFiles/retropong_core.dir/src/Ball.cpp.o: ../src/Ball.cpp
 CMakeFiles/retropong_core.dir/src/Border.cpp.o: ../include/Border.hpp
 CMakeFiles/retropong_core.dir/src/Border.cpp.o: ../src/Border.cpp
 
+CMakeFiles/retropong_core.dir/src/Button.cpp.o: ../include/Button.hpp
+CMakeFiles/retropong_core.dir/src/Button.cpp.o: ../src/Button.cpp
+
 CMakeFiles/retropong_core.dir/src/CompView.cpp.o: ../include/Ball.hpp
 CMakeFiles/retropong_core.dir/src/CompView.cpp.o: ../include/Border.hpp
+CMakeFiles/retropong_core.dir/src/CompView.cpp.o: ../include/Button.hpp
 CMakeFiles/retropong_core.dir/src/CompView.cpp.o: ../include/CompView.hpp
 CMakeFiles/retropong_core.dir/src/CompView.cpp.o: ../include/DropDown.hpp
 CMakeFiles/retropong_core.dir/src/CompView.cpp.o: ../include/GameLogic.hpp
@@ -23,6 +27,7 @@ CMakeFiles/retropong_core.dir/src/DropDown.cpp.o: ../src/DropDown.cpp
 
 CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o: ../include/Ball.hpp
 CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o: ../include/Border.hpp
+CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o: ../include/Button.hpp
 CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o: ../include/DropDown.hpp
 CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o: ../include/GameLogic.hpp
 CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o: ../include/MainMenu.hpp
@@ -33,6 +38,7 @@ CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o: ../src/GameLogic.cpp
 
 CMakeFiles/retropong_core.dir/src/KeyPress.cpp.o: ../include/Ball.hpp
 CMakeFiles/retropong_core.dir/src/KeyPress.cpp.o: ../include/Border.hpp
+CMakeFiles/retropong_core.dir/src/KeyPress.cpp.o: ../include/Button.hpp
 CMakeFiles/retropong_core.dir/src/KeyPress.cpp.o: ../include/DropDown.hpp
 CMakeFiles/retropong_core.dir/src/KeyPress.cpp.o: ../include/GameLogic.hpp
 CMakeFiles/retropong_core.dir/src/KeyPress.cpp.o: ../include/KeyPress.hpp
@@ -47,6 +53,7 @@ CMakeFiles/retropong_core.dir/src/MainMenu.cpp.o: ../src/MainMenu.cpp
 
 CMakeFiles/retropong_core.dir/src/MousePress.cpp.o: ../include/Ball.hpp
 CMakeFiles/retropong_core.dir/src/MousePress.cpp.o: ../include/Border.hpp
+CMakeFiles/retropong_core.dir/src/MousePress.cpp.o: ../include/Button.hpp
 CMakeFiles/retropong_core.dir/src/MousePress.cpp.o: ../include/DropDown.hpp
 CMakeFiles/retropong_core.dir/src/MousePress.cpp.o: ../include/GameLogic.hpp
 CMakeFiles/retropong_core.dir/src/MousePress.cpp.o: ../include/MainMenu.hpp
@@ -56,6 +63,7 @@ CMakeFiles/retropong_core.dir/src/MousePress.cpp.o: ../include/Paddle.hpp
 CMakeFiles/retropong_core.dir/src/MousePress.cpp.o: ../include/ScoreBoard.hpp
 CMakeFiles/retropong_core.dir/src/MousePress.cpp.o: ../src/MousePress.cpp
 
+CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.o: ../include/Button.hpp
 CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.o: ../include/DropDown.hpp
 CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.o: ../include/OptionMenu.hpp
 CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.o: ../src/OptionMenu.cpp
@@ -68,6 +76,7 @@ CMakeFiles/retropong_core.dir/src/ScoreBoard.cpp.o: ../src/ScoreBoard.cpp
 
 CMakeFiles/retropong_core.dir/src/UserView.cpp.o: ../include/Ball.hpp
 CMakeFiles/retropong_core.dir/src/UserView.cpp.o: ../include/Border.hpp
+CMakeFiles/retropong_core.dir/src/UserView.cpp.o: ../include/Button.hpp
 CMakeFiles/retropong_core.dir/src/UserView.cpp.o: ../include/DropDown.hpp
 CMakeFiles/retropong_core.dir/src/UserView.cpp.o: ../include/GameLogic.hpp
 CMakeFiles/retropong_core.dir/src/UserView.cpp.o: ../include/KeyPress.hpp

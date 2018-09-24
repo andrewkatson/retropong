@@ -11,7 +11,7 @@ using std::shared_ptr;
 class CompView{
 private:
   GameLogic *gameLogic;
-  int ticksSinceLastMove;
+
 
 
 public:
@@ -22,7 +22,6 @@ public:
   void updateCompView(int deltaS);
   void followBall(int deltaS);
   bool canMove(int deltaS);
-  int calcMaxTicksBeforeMove(int deltaS);
   float calcBallXPosThresholdForMove(int deltaS);
 
 private:

@@ -47,6 +47,7 @@ public:
   void startPlaying();
   void startOptionsMenu();
   void restartGame();
+  void switchToMainMenu();
   void shutdownGame(sf::RenderWindow  &game);
 
   void updateWindowSize(int windowX, int windowY);
@@ -64,11 +65,11 @@ public:
   int getColorIndexOfCurrentlySelectedObject();
   sf::Color getColorOfObject(string objectName);
 
-  void moveUserPaddleDown();
-  void moveUserPaddleUp();
-  void moveCompPaddleDown();
-  void moveCompPaddleUp();
-  void moveBall();
+  void moveUserPaddleDown(float deltaS);
+  void moveUserPaddleUp(float deltaS);
+  void moveCompPaddleDown(float deltaS);
+  void moveCompPaddleUp(float deltaS);
+  void moveBall(float deltaS);
 
   bool isCollision();
   bool ballHitsGoal();
@@ -88,8 +89,7 @@ public:
   void pauseGame();
   void unPauseGame();
   void unpauseBall();
-  void moveBallPositionForward();
-  bool ballCanMove();
+  void moveBallPositionForward(float deltaS);
   bool isMainMenuOn();
   bool isOptionsMenuOn();
   bool isGamePaused();
@@ -162,9 +162,13 @@ public:
 
   DropDown * getOptionMenuDifficultySelect();
 
+  Button * getOptionMenuBackButton();
+
   int getGameObjectSelected();
 
   int getGameDifficultySelected();
+
+  Paddle::Difficulty getDifficulty();
 
   void setTopBorderColor(sf::Color &color);
 

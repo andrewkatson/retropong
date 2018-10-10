@@ -265,7 +265,6 @@ void UserView::drawBall(sf::RenderWindow &game){
 
   //try to load texture from file
   if(!(this -> gameLogic -> isKonamiCode()) || !(this -> successFullTexture)){
-    (this -> ball).setFillColor(sf::Color::White);
     game.draw((this -> ball));
   }
   else{

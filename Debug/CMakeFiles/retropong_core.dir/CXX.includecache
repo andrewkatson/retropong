@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -132,59 +132,59 @@ string
 thread
 -
 
-/home/f85/adkatson/Downloads/pong/retropong/src/Ball.cpp
+/home/andrew/retropong/src/Ball.cpp
 Ball.hpp
-/home/f85/adkatson/Downloads/pong/retropong/src/Ball.hpp
+/home/andrew/retropong/src/Ball.hpp
 
-/home/f85/adkatson/Downloads/pong/retropong/src/Border.cpp
+/home/andrew/retropong/src/Border.cpp
 Border.hpp
-/home/f85/adkatson/Downloads/pong/retropong/src/Border.hpp
+/home/andrew/retropong/src/Border.hpp
 
-/home/f85/adkatson/Downloads/pong/retropong/src/Button.cpp
+/home/andrew/retropong/src/Button.cpp
 Button.hpp
-/home/f85/adkatson/Downloads/pong/retropong/src/Button.hpp
+/home/andrew/retropong/src/Button.hpp
 
-/home/f85/adkatson/Downloads/pong/retropong/src/CompView.cpp
+/home/andrew/retropong/src/CompView.cpp
 CompView.hpp
-/home/f85/adkatson/Downloads/pong/retropong/src/CompView.hpp
+/home/andrew/retropong/src/CompView.hpp
 
-/home/f85/adkatson/Downloads/pong/retropong/src/DropDown.cpp
+/home/andrew/retropong/src/DropDown.cpp
 DropDown.hpp
-/home/f85/adkatson/Downloads/pong/retropong/src/DropDown.hpp
+/home/andrew/retropong/src/DropDown.hpp
 
-/home/f85/adkatson/Downloads/pong/retropong/src/GameLogic.cpp
+/home/andrew/retropong/src/GameLogic.cpp
 GameLogic.hpp
-/home/f85/adkatson/Downloads/pong/retropong/src/GameLogic.hpp
+/home/andrew/retropong/src/GameLogic.hpp
 
-/home/f85/adkatson/Downloads/pong/retropong/src/KeyPress.cpp
+/home/andrew/retropong/src/KeyPress.cpp
 KeyPress.hpp
-/home/f85/adkatson/Downloads/pong/retropong/src/KeyPress.hpp
+/home/andrew/retropong/src/KeyPress.hpp
 iostream
 -
 
-/home/f85/adkatson/Downloads/pong/retropong/src/MainMenu.cpp
+/home/andrew/retropong/src/MainMenu.cpp
 MainMenu.hpp
-/home/f85/adkatson/Downloads/pong/retropong/src/MainMenu.hpp
+/home/andrew/retropong/src/MainMenu.hpp
 
-/home/f85/adkatson/Downloads/pong/retropong/src/MousePress.cpp
+/home/andrew/retropong/src/MousePress.cpp
 MousePress.hpp
-/home/f85/adkatson/Downloads/pong/retropong/src/MousePress.hpp
+/home/andrew/retropong/src/MousePress.hpp
 
-/home/f85/adkatson/Downloads/pong/retropong/src/OptionMenu.cpp
+/home/andrew/retropong/src/OptionMenu.cpp
 OptionMenu.hpp
-/home/f85/adkatson/Downloads/pong/retropong/src/OptionMenu.hpp
+/home/andrew/retropong/src/OptionMenu.hpp
 
-/home/f85/adkatson/Downloads/pong/retropong/src/Paddle.cpp
+/home/andrew/retropong/src/Paddle.cpp
 Paddle.hpp
-/home/f85/adkatson/Downloads/pong/retropong/src/Paddle.hpp
+/home/andrew/retropong/src/Paddle.hpp
 
-/home/f85/adkatson/Downloads/pong/retropong/src/ScoreBoard.cpp
+/home/andrew/retropong/src/ScoreBoard.cpp
 ScoreBoard.hpp
-/home/f85/adkatson/Downloads/pong/retropong/src/ScoreBoard.hpp
+/home/andrew/retropong/src/ScoreBoard.hpp
 
-/home/f85/adkatson/Downloads/pong/retropong/src/UserView.cpp
+/home/andrew/retropong/src/UserView.cpp
 UserView.hpp
-/home/f85/adkatson/Downloads/pong/retropong/src/UserView.hpp
+/home/andrew/retropong/src/UserView.hpp
 iostream
 -
 

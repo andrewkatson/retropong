@@ -4,19 +4,19 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/f85/adkatson/Downloads/pong/retropong/src/Ball.cpp" "/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles/retropong_core.dir/src/Ball.cpp.o"
-  "/home/f85/adkatson/Downloads/pong/retropong/src/Border.cpp" "/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles/retropong_core.dir/src/Border.cpp.o"
-  "/home/f85/adkatson/Downloads/pong/retropong/src/Button.cpp" "/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles/retropong_core.dir/src/Button.cpp.o"
-  "/home/f85/adkatson/Downloads/pong/retropong/src/CompView.cpp" "/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles/retropong_core.dir/src/CompView.cpp.o"
-  "/home/f85/adkatson/Downloads/pong/retropong/src/DropDown.cpp" "/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles/retropong_core.dir/src/DropDown.cpp.o"
-  "/home/f85/adkatson/Downloads/pong/retropong/src/GameLogic.cpp" "/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o"
-  "/home/f85/adkatson/Downloads/pong/retropong/src/KeyPress.cpp" "/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles/retropong_core.dir/src/KeyPress.cpp.o"
-  "/home/f85/adkatson/Downloads/pong/retropong/src/MainMenu.cpp" "/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles/retropong_core.dir/src/MainMenu.cpp.o"
-  "/home/f85/adkatson/Downloads/pong/retropong/src/MousePress.cpp" "/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles/retropong_core.dir/src/MousePress.cpp.o"
-  "/home/f85/adkatson/Downloads/pong/retropong/src/OptionMenu.cpp" "/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.o"
-  "/home/f85/adkatson/Downloads/pong/retropong/src/Paddle.cpp" "/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles/retropong_core.dir/src/Paddle.cpp.o"
-  "/home/f85/adkatson/Downloads/pong/retropong/src/ScoreBoard.cpp" "/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles/retropong_core.dir/src/ScoreBoard.cpp.o"
-  "/home/f85/adkatson/Downloads/pong/retropong/src/UserView.cpp" "/home/f85/adkatson/Downloads/pong/retropong/Debug/CMakeFiles/retropong_core.dir/src/UserView.cpp.o"
+  "/home/andrew/retropong/src/Ball.cpp" "/home/andrew/retropong/Debug/CMakeFiles/retropong_core.dir/src/Ball.cpp.o"
+  "/home/andrew/retropong/src/Border.cpp" "/home/andrew/retropong/Debug/CMakeFiles/retropong_core.dir/src/Border.cpp.o"
+  "/home/andrew/retropong/src/Button.cpp" "/home/andrew/retropong/Debug/CMakeFiles/retropong_core.dir/src/Button.cpp.o"
+  "/home/andrew/retropong/src/CompView.cpp" "/home/andrew/retropong/Debug/CMakeFiles/retropong_core.dir/src/CompView.cpp.o"
+  "/home/andrew/retropong/src/DropDown.cpp" "/home/andrew/retropong/Debug/CMakeFiles/retropong_core.dir/src/DropDown.cpp.o"
+  "/home/andrew/retropong/src/GameLogic.cpp" "/home/andrew/retropong/Debug/CMakeFiles/retropong_core.dir/src/GameLogic.cpp.o"
+  "/home/andrew/retropong/src/KeyPress.cpp" "/home/andrew/retropong/Debug/CMakeFiles/retropong_core.dir/src/KeyPress.cpp.o"
+  "/home/andrew/retropong/src/MainMenu.cpp" "/home/andrew/retropong/Debug/CMakeFiles/retropong_core.dir/src/MainMenu.cpp.o"
+  "/home/andrew/retropong/src/MousePress.cpp" "/home/andrew/retropong/Debug/CMakeFiles/retropong_core.dir/src/MousePress.cpp.o"
+  "/home/andrew/retropong/src/OptionMenu.cpp" "/home/andrew/retropong/Debug/CMakeFiles/retropong_core.dir/src/OptionMenu.cpp.o"
+  "/home/andrew/retropong/src/Paddle.cpp" "/home/andrew/retropong/Debug/CMakeFiles/retropong_core.dir/src/Paddle.cpp.o"
+  "/home/andrew/retropong/src/ScoreBoard.cpp" "/home/andrew/retropong/Debug/CMakeFiles/retropong_core.dir/src/ScoreBoard.cpp.o"
+  "/home/andrew/retropong/src/UserView.cpp" "/home/andrew/retropong/Debug/CMakeFiles/retropong_core.dir/src/UserView.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

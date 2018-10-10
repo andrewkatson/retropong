@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -150,9 +150,9 @@ string
 thread
 -
 
-/home/f85/adkatson/Downloads/pong/retropong/bin/Game.cpp
+/home/andrew/retropong/bin/Game.cpp
 Game.hpp
-/home/f85/adkatson/Downloads/pong/retropong/bin/Game.hpp
+/home/andrew/retropong/bin/Game.hpp
 iostream
 -
 
